@@ -1,0 +1,17 @@
+- [Terse over verbose](feedback_terse_over_verbose.md) — short bullets/declaratives by default, not long explanatory prose
+- [STE prose](feedback_ste_prose.md) — ASD-STE100 for all prose: under 20 words, no semicolons, no contractions, active voice, plain verbs
+- [Action-first structure](feedback_action_first_structure.md) — lead with the next action, number steps, restate state, no preamble or closers
+- [Complete sentences](feedback_complete_sentences.md) — no left-edge deletion: keep the subject pronoun, never write "Going to the store" for "I am going to the store"
+- [PR body template](feedback_pr_body_template.md) — fixed structure: Problem, Fix, Changes (lead-in + snippet + plain sentence each), test-count line
+- [PR titles cite task](feedback_pr_titles_cite_task.md) — title names the requirement+criterion or task; the issue number never goes in the title
+- [No contrastive hedging](feedback_no_contrastive_hedging.md) — avoid "seen, not predicted"-style X-not-Y phrasing; write plainly instead
+- [PR shape varies per batch](feedback_pr_shape_per_batch.md) — ask bundled-vs-one-per-issue fresh each bug batch, don't assume last batch's answer
+- [Write PRs for outside readers](feedback_write_prs_for_outside_readers.md) — plain words, define IDs, short sentences; the spec tree's register fails in a PR or issue
+- [Phase triage test](feedback_phase_triage_test.md) — an issue leaves the phase when it breaks nothing the client required, even if it touches that phase's feature
+- [Worktree for concurrent sessions](feedback_worktree_for_concurrent_sessions.md) — worktree signals detected concurrency, not a per-task default
+- [Fix, don't defer](feedback_fix_dont_defer.md) — fix small tractable issues found mid-task now, don't spawn_task or bury them in a summary bullet
+- [Never ask settled questions](feedback_dont_ask_settled_questions.md) — if the answer is upstream in the conversation, the spec, or my own next sentence, decide and state the assumption
+- [Possessive, not bare "the"](feedback_possessive_not_bare_the.md) — "your guess", never "the premise"; a definite article hides whose claim it was
+- [Never state PR status from memory](feedback_push_implies_pr.md) — query before pushing to a PR and before telling Alex anything is outstanding; compare content not commits
+- [Stacked PRs use gh stack](feedback_stacked_prs_use_gh_stack.md) — GitHub only retargets a child when the parent branch is deleted; hand-rolled stacks merge into the parent and report as MERGED
+- [Delete branches after merge](feedback_delete_branches_after_merge.md) — delete the branch when its PR merges, local and remote; leave only main, open-PR branches, and what was asked for

@@ -9,7 +9,7 @@ metadata:
 Put explanatory comments in **one block at the top of the file**, not scattered above the things they describe. Three rules:
 
 1. **Frontload.** One block at the head of the file carries the reasoning for the whole file.
-2. **Inline means same line.** If something must be explained where it sits, it is a trailing comment on the code line itself — `num_retries: 2  # attempts after the first`, never two lines above it.
+2. **Inline means same line.** If something must be explained where it sits, it is a trailing comment on the code line itself — `num_retries: 2  # attempts after the first`, never above it. **A bare citation is not an exception.** `signals:  # @spec ROUTE_C002`, never a `# @spec ...` line of its own above the key. Alex had to point this out separately after the first pass moved the prose and left every one-line citation sitting above its key, which is the same violation in a shorter form.
 3. **A block needs a blank line.** Where a block genuinely has to sit mid-file, separate it from the code with a newline so the reader can see where prose stops and code starts.
 
 **Why:** Alex gave this on 2026-08-21 after `config/litellm.yaml` reached 288 comment lines against 172 of configuration, with a 165-line essay before the first setting and explanatory blocks stacked directly on top of every key. Reading the file meant scrolling past prose to find what it declared. Volume was the first complaint and placement was the second — cutting to 68 lines did not fix it, because the survivors were still interleaved with the code.

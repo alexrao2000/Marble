@@ -1,0 +1,7 @@
+interface:
+  display_name: "Read Phrase Preferences"
+  short_description: "Apply loved and hated phrase choices"
+  default_prompt: "Use $read-phrase-preferences to apply my phrase preferences to this writing."
+
+policy:
+  allow_implicit_invocation: true

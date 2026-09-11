@@ -1,0 +1,7 @@
+interface:
+  display_name: "Write Phrase Preferences"
+  short_description: "Learn and record phrase preferences"
+  default_prompt: "Use $write-phrase-preferences to remember my explicit or repeated phrase preferences."
+
+policy:
+  allow_implicit_invocation: true

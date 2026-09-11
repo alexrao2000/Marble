@@ -1,6 +1,6 @@
 ---
 name: feedback-write-prs-for-outside-readers
-description: PR/issue/commit descriptions must be plainly readable by someone without the surrounding context
+description: PR/issue/commit descriptions AND chat reports to Alex must be plainly readable without the surrounding context
 metadata: 
   node_type: memory
   type: feedback
@@ -17,7 +17,7 @@ metadata:
 
 On 2026-08-08 the user said the memory "is clearly still not fully tuned" after two PR bodies broke all of the above. The rule was not missing; it went unread while drafting.
 
-Write PR bodies, GitHub issues, and commit messages so a reader who does not already share my context can follow them. On 2026-08-04 the user called an initial set "nobody knows what the fuck you're saying." On 2026-08-06, on a follow-up PR that still opened with two scene-setting sentences before the actual point, the user gave the fix in exact terms: "you talk like a psycho" — followed immediately by the exact required template.
+Write PR bodies, GitHub issues, commit messages, and the end-of-task report in chat so a reader who does not already share my context can follow them. On 2026-08-26 a build report ended with the bullet "The embedding model, provider and budget stay unruled" and the user replied "IDK what point 2 means. Use english." Spec-tree words that fail in chat exactly as they fail in a PR: unruled, gated, the rented layer, a seam, a band, a destination, a criterion carrying something. Say instead who has not decided what, and what happens meanwhile - "nobody has said which embedding model to use, who sells it, or how much may be spent, so the feature ships switched off". On 2026-08-04 the user called an initial set "nobody knows what the fuck you're saying." On 2026-08-06, on a follow-up PR that still opened with two scene-setting sentences before the actual point, the user gave the fix in exact terms: "you talk like a psycho" — followed immediately by the exact required template.
 
 **Why:** In this repo the temptation is strong to write in the spec tree's internal register — bare IDs (`EXEC_C006`, `BENCH_C007`), queue row numbers, and the clause-heavy style of `amending-the-spec.md`. That style is load-bearing inside the spec files, and it fails as communication in a PR or an issue, where the reader is deciding something rather than reading a specification. Even a "plain English" opening can still be preamble if it explains around the point instead of stating it.
 

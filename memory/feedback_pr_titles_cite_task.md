@@ -8,7 +8,7 @@ metadata:
   modified: 2026-08-07T00:12:25.943Z
 ---
 
-A PR title names the **requirement and criterion** (or the sprint task) the work delivers, and **never the issue number**. The issue number goes at the bottom of the body only.
+A PR title for a narrow change names the **requirement and criterion** (or the sprint task) the work delivers, and **never the issue number**. A sprint- or scope-level PR is the other case and [[feedback_pr_titles_short_and_plain]] holds it: there the subject goes in plain words and no ID does. The issue number goes at the bottom of the body only.
 
 - Wrong: `API005 c10: withhold the caller field that redirects the provider (#365)`
 - Right: `API005 c10: withhold the caller field that redirects the provider`

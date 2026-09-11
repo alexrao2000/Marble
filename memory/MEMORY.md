@@ -1,27 +1,22 @@
+- [Plain English](feedback_plain_english.md) — the one style rule; write the way a competent colleague talks, and being understood beats being distinctive
+- [AGENTS.md 60-line cap](feedback_agents_md_60_line_cap.md) — holds for project files too; pay for plain English by deleting restatements and borrowed reasons, not by lifting the cap
 - [Frontload comments](feedback_comments_frontloaded.md) — one block at the top of the file; inline means same-line, and a mid-file block needs a blank line before the code
-- [Terse over verbose](feedback_terse_over_verbose.md) — short bullets/declaratives by default, not long explanatory prose
-- [STE prose](feedback_ste_prose.md) — ASD-STE100 for all prose: under 20 words, no semicolons, no contractions, active voice, plain verbs
-- [Coding reports: two sections](feedback_coding_report_two_sections.md) — only "What I've built" and "What next"; format freely inside them, questions exempt
-- [Action-first structure](feedback_action_first_structure.md) — lead with the next action, number steps, restate state, no preamble or closers
-- [Complete sentences](feedback_complete_sentences.md) — no left-edge deletion: keep the subject pronoun, never write "Going to the store" for "I am going to the store"
 - [PR body template](feedback_pr_body_template.md) — fixed structure: Problem, Fix, Changes (lead-in + snippet + plain sentence each), test-count line
 - [PR titles cite task](feedback_pr_titles_cite_task.md) — title names the requirement+criterion or task; the issue number never goes in the title
-- [No contrastive hedging](feedback_no_contrastive_hedging.md) — avoid "seen, not predicted"-style X-not-Y phrasing; write plainly instead
+- [PR titles short and plain](feedback_pr_titles_short_and_plain.md) — tag plus a 5-8 word Title Case noun phrase; statement/observation numbers and status clauses never belong in a title
+- [Keep PR metadata current](feedback_keep_pr_metadata_current.md) — update the title and body yourself when content changes, even a title Alex wrote; flagging staleness is not fixing it
 - [PR shape varies per batch](feedback_pr_shape_per_batch.md) — ask bundled-vs-one-per-issue fresh each bug batch, don't assume last batch's answer
 - [Write PRs for outside readers](feedback_write_prs_for_outside_readers.md) — plain words, define IDs, short sentences; the spec tree's register fails in a PR or issue
 - [Phase triage test](feedback_phase_triage_test.md) — an issue leaves the phase when it breaks nothing the client required, even if it touches that phase's feature
 - [Worktree for concurrent sessions](feedback_worktree_for_concurrent_sessions.md) — check for another agent before touching the checkout; worktree when one is found, not per task
 - [Fix, don't defer](feedback_fix_dont_defer.md) — fix small tractable issues found mid-task now, don't spawn_task or bury them in a summary bullet
 - [Never ask settled questions](feedback_dont_ask_settled_questions.md) — if the answer is upstream in the conversation, the spec, or my own next sentence, decide and state the assumption
-- [Possessive, not bare "the"](feedback_possessive_not_bare_the.md) — "your guess", never "the premise"; a definite article hides whose claim it was
 - [Never state PR status from memory](feedback_push_implies_pr.md) — query before pushing to a PR and before telling Alex anything is outstanding; compare content not commits
 - [Stacked PRs use gh stack](feedback_stacked_prs_use_gh_stack.md) — hand-rolled stacks merge into the parent and report MERGED; happened twice, warning the user is not a substitute for gh stack
 - [Delete branches after merge](feedback_delete_branches_after_merge.md) — delete the branch when its PR merges, local and remote; leave only main, open-PR branches, and what was asked for
 - [Fold, don't file](feedback_fold_dont_file.md) — during release wrap-up, fix small findings into the current PR instead of opening Phase 1A issues
-- [Explain errors plainly](feedback_explain_errors_plainly.md) — a mistake is a line or two; padding it with mechanism reads as self-justification
 - [Do the asked change](feedback_do_the_asked_change.md) — make the edit and stop; reminders are fine, but an item Alex deferred is closed until he reopens it
 - [Worktree before the first commit](feedback_worktree_before_first_commit.md) — a concurrent session can switch the shared checkout mid-task; stage explicit paths, never git add -A
-- [Frontload fixes](feedback_frontload_fixes.md) — lead with "Fixed:" when reporting a fix, not with the defect narrative
 - [Always commit](feedback_always_commit.md) — commit work to git immediately; scratchpad only for throwaway intermediates; exceptions: secrets, large unignored datasets
-- [gh account for personal repos](reference_gh_account_for_personal_repos.md) — the EMU account cannot open PRs there; use alexrao2000 token, and worktrees escape gp bindings
 - [claude-outfit repo](reference_claude_outfit_repo.md) — exported setup repo, renamed from claude-memory; memory/ and skills/ trees
+- [Check method before restructuring](feedback_check_method_before_restructuring.md) — read the SDD and reqs/ before moving or renaming anything they may prescribe; push back with the line rather than comply

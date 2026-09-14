@@ -20,3 +20,4 @@
 - [Always commit](feedback_always_commit.md) — commit work to git immediately; scratchpad only for throwaway intermediates; exceptions: secrets, large unignored datasets
 - [memory-and-skills repo](reference_claude_outfit_repo.md) — exported setup repo, renamed from claude-outfit; memory/ and skills/ trees
 - [Check method before restructuring](feedback_check_method_before_restructuring.md) — read the SDD and reqs/ before moving or renaming anything they may prescribe; push back with the line rather than comply
+- [Slack markdown upload detection](feedback_slack_markdown_upload_detection.md) — Slack sniffs .md uploads: non-ASCII bytes read as Binary, a few Pascal reserved words (label, string, records) read as Pascal; pure ASCII and a word sweep fix it

@@ -21,13 +21,14 @@ if ! git diff --quiet || ! git diff --cached --quiet || [[ -n "$(git ls-files --
 fi
 
 remote="https://github.com/alexrao2000/memory-and-skills.git"
+remote_ref="refs/remotes/origin/main"
 helper="$repo/scripts/github-personal-credential.sh"
 git_personal() {
   env -u GH_TOKEN git -c credential.helper= -c "credential.helper=$helper" "$@"
 }
 
-git_personal fetch "$remote" main
-read -r ahead behind < <(git rev-list --left-right --count HEAD...FETCH_HEAD)
+git_personal fetch "$remote" "+refs/heads/main:$remote_ref"
+read -r ahead behind < <(git rev-list --left-right --count HEAD..."$remote_ref")
 
 if (( ahead > 0 && behind > 0 )); then
   echo "sync: local and remote main diverged; refusing to rewrite either" >&2
@@ -35,10 +36,11 @@ if (( ahead > 0 && behind > 0 )); then
 fi
 
 if (( behind > 0 )); then
-  git merge --ff-only FETCH_HEAD
+  git merge --ff-only "$remote_ref"
   echo "sync: fast-forwarded main by $behind commit(s)"
 elif (( ahead > 0 )); then
   git_personal push "$remote" HEAD:main
+  git update-ref "$remote_ref" HEAD
   echo "sync: pushed main by $ahead commit(s)"
 else
   echo "sync: main is current"

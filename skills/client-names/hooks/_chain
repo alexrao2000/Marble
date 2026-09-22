@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# core.hooksPath points every repository here, which stops git running the
+# repository's own .git/hooks. This passes each hook through to that copy.
+name="$(basename "$0")"
+own="$(git rev-parse --git-common-dir 2>/dev/null)/hooks/$name"
+if [[ -x "$own" ]]; then
+  exec "$own" "$@"
+fi
+exit 0

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Client Names"
+  short_description: "Record client names and block them from other repositories"
+  default_prompt: "Use $client-names to record a client's name, or to check text before posting it to a repository."
+
+policy:
+  allow_implicit_invocation: true

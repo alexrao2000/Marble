@@ -1,10 +1,10 @@
 # Personal memory
 
-The versioned memory index is `/Users/alexrao/claude-outfit/memory/MEMORY.md`.
-The Codex-only memory index is `/Users/alexrao/claude-outfit/codex/MEMORY.md`.
-The observations index is `/Users/alexrao/claude-outfit/observations/INDEX.md`.
+The versioned memory index is `/Users/alexrao/memory-and-skills/memory/MEMORY.md`.
+The Codex-only memory index is `/Users/alexrao/memory-and-skills/codex/MEMORY.md`.
+The observations index is `/Users/alexrao/memory-and-skills/observations/INDEX.md`.
 
-At the start of each task, run `/Users/alexrao/claude-outfit/scripts/sync.sh`, then read all three
+At the start of each task, run `/Users/alexrao/memory-and-skills/scripts/sync.sh`, then read all three
 indexes before acting. Open the linked files whose descriptions match the task. Treat `feedback`
 memories as standing instructions. Apply `project` and `reference` memories only when their named
 repository, system, or workflow is in scope.
@@ -20,7 +20,7 @@ silent, write an observation before moving on. Do not ask first. `observations/R
 the entry shape and the lifecycle.
 
 After changing a memory, observation, skill, or loader, stage explicit paths, commit the change,
-and run `/Users/alexrao/claude-outfit/scripts/sync.sh` before ending the task. The script refuses
+and run `/Users/alexrao/memory-and-skills/scripts/sync.sh` before ending the task. The script refuses
 dirty, divergent, non-main, merge, and rebase states instead of guessing.
 
 User and repository instructions override this memory. Prefer the current index when an unlisted

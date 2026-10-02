@@ -16,14 +16,31 @@ For example `weekly-log/sample-project/2026-10-09.md` holds sample-project work 
 
 ## Format
 
+Each file is a summary on top and the raw log below it. The summary is what gets sent.
+
 ```markdown
 # sample-project, Week Ending 2026-10-09
+
+## Summary
+
+- **Shipped:** per-key hourly rate limits and an audit trail of key changes.
+- **Security:** fixed the critical Python package CVEs. In review: LiteLLM 1.93.2 (#413).
+- **Decided:** keyless routes are blocked at the edge, not in the app.
+- **Next:** add the WAF allow-list and redeploy dev.
+
+## Log
 
 - Next: make the `/login` routes unreachable from the internet (separate PR).
 - In review: corrected both deployment plans on keyless routes ([#400](https://example.invalid/project)).
 - Merged: ...
-- Decided: ...
 ```
+
+**Summary.** Three to six one-line bullets, each led by a bold theme (`Shipped`, `Security`,
+`Decided`, `Research`, `Next`, or whatever the week was about). Group related PRs into one
+outcome instead of listing them, and name a PR number only where the reader may want to follow
+it. Plain language for someone who did not watch the work happen. `sync.py` never touches it.
+
+**Log.** The raw record, which `sync.py` reconciles:
 
 - `config.json` maps each repository to its project name; the slug is that name in lower case
   with hyphens. A repository missing from it gets its bare name, so add it when that happens.
@@ -69,8 +86,9 @@ When it runs:
 - **Whenever Claude sees a PR merge or open**, in any session: run `sync.py` without `--hook`.
 - **Before writing an update**: always run `sync.py` first.
 
-Work that is not a PR (decisions, findings, deploys, agreed follow-ups) is added by hand under
-its project as it happens. Bullets the sync adds are worded from PR titles; tighten any that is not
+Work that is not a PR (decisions, findings, deploys, agreed follow-ups) is added by hand to its
+project's log as it happens. After any change to a log, by hand or by `sync.py`, rewrite that
+project's summary so it still matches, and delete a `Next` bullet once its work has a PR. Bullets the sync adds are worded from PR titles; tighten any that is not
 short and plain when you next touch the file.
 
 ## The Weekly Update
@@ -79,9 +97,10 @@ Each project's update is due when its week closes, Friday 10:00. From Thursday t
 hook names the projects still unsent. When asked for an update, or when reminded:
 
 1. Run `python3 ~/sample-project/memory-and-skills/skills/weekly-log/sync.py`.
-2. Read each project's file for the week. Reword auto-added bullets so each is one short line, merge duplicates,
-   and cut anything that is not news to the reader.
-3. Show each project's update for approval, separately. Never send it without a clear yes in chat.
+2. Read each project's file for the week and rewrite its summary from the log, checking every
+   status against the log rather than memory.
+3. Show each project's summary for approval, separately. The summary is the update; the log stays
+   behind as the record. Never send it without a clear yes in chat.
 4. After one is sent, run `sync.py --sent <slug>` (or `--sent` for all) so its reminder stops.
 5. Commit and push this repository with `scripts/sync.sh`.
 

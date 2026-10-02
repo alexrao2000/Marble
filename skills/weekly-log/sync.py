@@ -98,25 +98,39 @@ def pr_key(bullet: str) -> tuple[str, int] | None:
 
 
 class Log:
-    """One project's week: a title, its bullets, and whether the update has been sent."""
+    """One project's week: a title, a hand-written summary, the log's bullets, and whether sent.
+
+    The file is the title, then `## Summary` (written by Claude, kept verbatim, never parsed),
+    then `## Log` (the bullets this script reconciles). A file with no headings is all log.
+    """
 
     def __init__(self, path: Path, project: str, end: dt.datetime):
         self.path = path
         self.title = f"# {project}, Week Ending {end.date().isoformat()}"
+        self.summary: list[str] = []
         self.bullets: list[str] = []
         self.sent = False
         self.existed = path.exists()
         if not self.existed:
             return
+        section = "log"
         for line in path.read_text().splitlines():
             if line.startswith("# "):
                 self.title = line
             elif line.strip() == SENT_MARKER:
                 self.sent = True
+            elif line.startswith("## "):
+                section = "summary" if line[3:].strip().lower() == "summary" else "log"
+            elif section == "summary":
+                self.summary.append(line)
             elif line.startswith("  ") and self.bullets:
                 self.bullets[-1] += " " + line.strip()  # rejoin a wrapped bullet
             elif line.startswith("- "):
                 self.bullets.append(line)
+        while self.summary and not self.summary[-1].strip():
+            self.summary.pop()
+        while self.summary and not self.summary[0].strip():
+            self.summary.pop(0)
 
     def find(self, key: tuple[str, int]) -> int | None:
         for i, bullet in enumerate(self.bullets):
@@ -130,7 +144,8 @@ class Log:
         ordered = sorted(
             self.bullets, key=lambda b: RANK.index(status_of(b)) if status_of(b) in RANK else len(RANK)
         )
-        text = "\n".join([self.title, "", *ordered]) + "\n"
+        summary = self.summary or ["_Not written yet._"]
+        text = "\n".join([self.title, "", "## Summary", "", *summary, "", "## Log", "", *ordered]) + "\n"
         if self.sent:
             text += f"\n{SENT_MARKER}\n"
         self.path.parent.mkdir(parents=True, exist_ok=True)

@@ -1,6 +1,6 @@
 ---
 name: weekly-log
-description: Keep a running log of the week's work, grouped by project, and turn it into the update sent every Thursday. Use whenever work worth reporting lands, is opened for review, or is deferred to a follow-up (a PR merged or opened, a deploy, a decision, a finding, a separate PR agreed), whenever Claude notices a pull request has merged, and when the user says "add this to the weekly log", "what did we do this week", or asks for the Thursday update. Also use at the end of a session that produced reportable work.
+description: Keep a running log of each project's week in its own file, and turn it into that project's update, due when the week closes on Friday at 10:00. Use whenever work worth reporting lands, is opened for review, or is deferred to a follow-up (a PR merged or opened, a deploy, a decision, a finding, a separate PR agreed), whenever Claude notices a pull request has merged, and when the user says "add this to the weekly log", "what did we do this week", or asks for the weekly update. Also use at the end of a session that produced reportable work.
 ---
 
 # Weekly Log

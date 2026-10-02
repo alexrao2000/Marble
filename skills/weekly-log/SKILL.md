@@ -5,32 +5,30 @@ description: Keep a running log of the week's work, grouped by project, and turn
 
 # Weekly Log
 
-One file per week, sent every Thursday. A week runs Friday to Thursday, and the file is named
-for its Thursday:
+Each project keeps its own file per week, so every update is self-contained and goes to its own
+audience. A week closes on **Friday at 10:00 local time** (`closes_friday_at` in `config.json`)
+and the next one opens at that instant. Files are named for the Friday they close:
 
-`~/sample-project/memory-and-skills/weekly-log/<YYYY-MM-DD of that Thursday>.md`
+`~/sample-project/memory-and-skills/weekly-log/<project slug>/<YYYY-MM-DD of the closing Friday>.md`
+
+For example `weekly-log/sample-project/2026-10-09.md` holds sample-project work from Friday 2 October
+10:00 to Friday 9 October 10:00.
 
 ## Format
 
 ```markdown
-# Week Ending 2026-10-08
-
-## sample-project
+# sample-project, Week Ending 2026-10-09
 
 - Next: make the `/login` routes unreachable from the internet (separate PR).
 - In review: corrected both deployment plans on keyless routes ([#400](https://example.invalid/project)).
 - Merged: ...
 - Decided: ...
-
-## sample-project
-
-- ...
 ```
 
-- One `##` section per project. `config.json` maps each repository to its project name; a
-  repository missing from it gets its bare name, so add it to `config.json` when that happens.
+- `config.json` maps each repository to its project name; the slug is that name in lower case
+  with hyphens. A repository missing from it gets its bare name, so add it when that happens.
 - Each bullet opens with its status: `Next`, `Blocked`, `In review`, `Merged`, `Shipped`, `Closed`,
-  `Decided` or `Found`. Bullets sort in that order within a section.
+  `Decided` or `Found`. Bullets sort in that order.
 - One line per bullet. Say what changed or was decided, not how. No reasoning, statistics or
   file paths unless the point is the number. Link the PR or issue as `[#123](full URL)`.
 - Headings are Title Case noun phrases.
@@ -41,11 +39,14 @@ Pull requests are tracked by `sync.py`, so nobody has to remember them. For each
 `config.json` it finds the PRs that account authored that merged or closed this week, or are open
 and were active this week, and then:
 
-- adds a bullet for any the log does not mention, worded from the PR title;
+- adds a bullet to the project's file for any PR it does not mention, worded from the PR title;
 - corrects the status word of any bullet whose PR has since merged or closed, which is how an
   outdated log is detected and fixed;
-- starts a new week's file when none exists, carrying the last week's `Next`, `Blocked` and
-  `In review` bullets forward.
+- moves a bullet into the right week's file when its PR closed in another week;
+- starts each project's file for a new week, carrying its `Next`, `Blocked` and `In review`
+  bullets forward.
+
+`sync.py --week <closing Friday>` syncs a past week.
 
 It never rewrites wording, only the status word before the colon.
 
@@ -53,8 +54,9 @@ When it runs:
 
 - **At the start of every Claude Code session**, from two `SessionStart` hooks in
   `~/.claude/settings.json`. `sync.py --hook` runs in the background, so it never delays a session;
-  it syncs at most once every 30 minutes. `sync.py --remind` makes no network call and prints the
-  Thursday reminder into the session when the week's update is unsent. A new machine needs both:
+  it syncs at most once every 30 minutes. `sync.py --remind` makes no network call and prints a
+  reminder into the session, from Thursday until a day after the close, naming each project
+  whose update is unsent. A new machine needs both:
 
   ```json
   "SessionStart": [{ "hooks": [
@@ -65,22 +67,22 @@ When it runs:
   ]}]
   ```
 - **Whenever Claude sees a PR merge or open**, in any session: run `sync.py` without `--hook`.
-- **Before the Thursday update**: always run `sync.py` first.
+- **Before writing an update**: always run `sync.py` first.
 
 Work that is not a PR (decisions, findings, deploys, agreed follow-ups) is added by hand under
 its project as it happens. Bullets the sync adds are worded from PR titles; tighten any that is not
 short and plain when you next touch the file.
 
-## The Thursday Update
+## The Weekly Update
 
-On Thursday the `--remind` hook adds a reminder to every session until the update is marked sent.
-When asked for the update, or when reminded:
+Each project's update is due when its week closes, Friday 10:00. From Thursday the `--remind`
+hook names the projects still unsent. When asked for an update, or when reminded:
 
 1. Run `python3 ~/sample-project/memory-and-skills/skills/weekly-log/sync.py`.
-2. Read the week's file. Reword auto-added bullets so each is one short line, merge duplicates,
+2. Read each project's file for the week. Reword auto-added bullets so each is one short line, merge duplicates,
    and cut anything that is not news to the reader.
-3. Show the result for approval. Never send it without a clear yes in chat.
-4. After it is sent, run `sync.py --sent` so the reminder stops.
+3. Show each project's update for approval, separately. Never send it without a clear yes in chat.
+4. After one is sent, run `sync.py --sent <slug>` (or `--sent` for all) so its reminder stops.
 5. Commit and push this repository with `scripts/sync.sh`.
 
-Where the update is sent is not decided yet. Ask the first time, then write the answer here.
+Where each project's update is sent is not decided yet. Ask the first time, then write it here.

@@ -1,5 +1,6 @@
 {
   "log_dir": "~/Marble/weekly-log",
+  "closes_friday_at": "10:00",
   "accounts": [],
   "projects": {}
 }

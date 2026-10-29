@@ -1,4 +1,5 @@
 - [Plain English](feedback_plain_english.md) — the one style rule; write the way a competent colleague talks, and being understood beats being distinctive
+- [No outside names](feedback_no_outside_names.md) — do not mention outside organizations, companies, or repositories; keep other work generic unless explicitly requested
 - [AGENTS.md 60-line cap](feedback_agents_md_60_line_cap.md) — holds for project files too; pay for plain English by deleting restatements and borrowed reasons, not by lifting the cap
 - [Frontload comments](feedback_comments_frontloaded.md) — one block at the top of the file; inline means same-line, and a mid-file block needs a blank line before the code
 - [PR body template](feedback_pr_body_template.md) — fixed structure: Problem, Fix, Changes (lead-in + snippet + plain sentence each), test-count line

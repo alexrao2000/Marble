@@ -9,7 +9,7 @@ Each project keeps its own file per week, so every update is self-contained and 
 audience. A week closes on **Friday at 10:00 local time** (`closes_friday_at` in `config.json`)
 and the next one opens at that instant. Files are named for the Friday they close:
 
-`~/sample-project/memory-and-skills/weekly-log/<project slug>/<YYYY-MM-DD of the closing Friday>.md`
+`~/Marble/weekly-log/<project slug>/<YYYY-MM-DD of the closing Friday>.md`
 
 For example `weekly-log/sample-project/2026-10-09.md` holds sample-project work from Friday 2 October
 10:00 to Friday 9 October 10:00.
@@ -78,9 +78,9 @@ When it runs:
   ```json
   "SessionStart": [{ "hooks": [
     { "type": "command", "shell": "bash", "timeout": 10,
-      "command": "python3 ~/sample-project/memory-and-skills/skills/weekly-log/sync.py --remind 2>/dev/null || true" },
+      "command": "python3 ~/Marble/skills/weekly-log/sync.py --remind 2>/dev/null || true" },
     { "type": "command", "shell": "bash", "timeout": 90, "async": true,
-      "command": "python3 ~/sample-project/memory-and-skills/skills/weekly-log/sync.py --hook 2>/dev/null || true" }
+      "command": "python3 ~/Marble/skills/weekly-log/sync.py --hook 2>/dev/null || true" }
   ]}]
   ```
 - **Whenever Claude sees a PR merge or open**, in any session: run `sync.py` without `--hook`.
@@ -96,7 +96,7 @@ short and plain when you next touch the file.
 Each project's update is due when its week closes, Friday 10:00. From Thursday the `--remind`
 hook names the projects still unsent. When asked for an update, or when reminded:
 
-1. Run `python3 ~/sample-project/memory-and-skills/skills/weekly-log/sync.py`.
+1. Run `python3 ~/Marble/skills/weekly-log/sync.py`.
 2. Read each project's file for the week and rewrite its summary from the log, checking every
    status against the log rather than memory.
 3. Show each project's summary for approval, separately. The summary is the update; the log stays

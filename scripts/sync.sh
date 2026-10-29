@@ -20,7 +20,7 @@ if ! git diff --quiet || ! git diff --cached --quiet || [[ -n "$(git ls-files --
   exit 1
 fi
 
-remote="https://github.com/alexrao2000/memory-and-skills.git"
+remote="https://github.com/alexrao2000/Marble.git"
 remote_ref="refs/remotes/origin/main"
 helper="$repo/scripts/github-personal-credential.sh"
 git_personal() {

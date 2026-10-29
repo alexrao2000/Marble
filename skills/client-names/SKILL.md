@@ -7,7 +7,7 @@ description: Use whenever a conversation, file, Slack thread, issue or document 
 
 Keep a client's names out of every repository that is not the client's own.
 
-The list is `names.json` in this skill's directory, inside `memory-and-skills`, so it syncs to
+The list is `names.json` in this skill's directory, inside `Marble`, so it syncs to
 every machine. A global git pre-push hook reads it and refuses a push that would carry a listed
 name to a remote the client is not allowed on. The script is `scripts/client_names.py`.
 

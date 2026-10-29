@@ -18,6 +18,6 @@
 - [Do the asked change](feedback_do_the_asked_change.md) — make the edit and stop; reminders are fine, but an item Alex deferred is closed until he reopens it
 - [Worktree before the first commit](feedback_worktree_before_first_commit.md) — a concurrent session can switch the shared checkout mid-task; stage explicit paths, never git add -A
 - [Always commit](feedback_always_commit.md) — commit work to git immediately; scratchpad only for throwaway intermediates; exceptions: secrets, large unignored datasets
-- [memory-and-skills repo](reference_memory_and_skills_repo.md) — exported setup repo and local checkout; memory/ and skills/ trees
+- [Marble repo](reference_memory_and_skills_repo.md) — exported setup repo and local checkout; memory/ and skills/ trees
 - [Check method before restructuring](feedback_check_method_before_restructuring.md) — read the SDD and reqs/ before moving or renaming anything they may prescribe; push back with the line rather than comply
 - [Hyperlink every citation](feedback_hyperlink_citations.md) — an ADR, doc, issue, PR or file named in a PR, issue, comment or chat links to it; ADR numbers and doc paths never auto-link

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Keep client names out of repositories they do not belong in.
 
-The list lives beside this script in ../names.json, inside memory-and-skills,
+The list lives beside this script in ../names.json, inside Marble,
 so it travels to every machine that syncs that repository.
 
 Commands:

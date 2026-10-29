@@ -33,7 +33,8 @@ import time
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-CONFIG = json.loads((HERE / "config.json").read_text())
+LOCAL_CONFIG = Path(os.environ.get("MARBLE_WEEKLY_LOG_CONFIG", HERE.parent.parent / ".private" / "weekly-log.json"))
+CONFIG = json.loads((LOCAL_CONFIG if LOCAL_CONFIG.exists() else HERE / "config.json").read_text())
 LOG_DIR = Path(CONFIG["log_dir"]).expanduser()
 CLOSE_HOUR, CLOSE_MINUTE = (int(part) for part in CONFIG["closes_friday_at"].split(":"))
 STAMP = LOG_DIR / ".last-sync"
@@ -197,8 +198,12 @@ def pull_requests(start: dt.datetime) -> dict[tuple[str, int], dict]:
     found: dict[tuple[str, int], dict] = {}
     for account in CONFIG["accounts"]:
         for pr in gh_search(account, "--state", "open", "--updated", f">={since}"):
+            if pr["repository"]["nameWithOwner"] not in CONFIG["projects"]:
+                continue
             found[(pr["repository"]["nameWithOwner"], pr["number"])] = {**pr, "status": "In review"}
         for pr in gh_search(account, "--state", "closed", "--closed", f">={since}"):
+            if pr["repository"]["nameWithOwner"] not in CONFIG["projects"]:
+                continue
             status = "Merged" if pr["state"] == "merged" else "Closed"
             found[(pr["repository"]["nameWithOwner"], pr["number"])] = {
                 **pr, "status": status, "closed": moment(pr["closedAt"])

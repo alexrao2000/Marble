@@ -7,8 +7,9 @@ description: Use whenever a conversation, file, Slack thread, issue or document 
 
 Keep a client's names out of every repository that is not the client's own.
 
-The list is `names.json` in this skill's directory, inside `Marble`, so it syncs to
-every machine. A global git pre-push hook reads it and refuses a push that would carry a listed
+The private list is `.private/client-names.json` at this repository's root, or the path
+set by `MARBLE_CLIENT_NAMES_PATH`. It stays local and ignored. The versioned `names.json`
+is an empty template. A global git pre-push hook reads the local list and refuses a push that would carry a listed
 name to a remote the client is not allowed on. The script is `scripts/client_names.py`.
 
 ## Recording a name
@@ -49,8 +50,8 @@ A new client also needs the remotes that may hold its names, usually its own Git
 scripts/client_names.py add "<name>" --client "<client>" --kind company --allow-remote "github.com/<client-org>/*"
 ```
 
-Each change commits `names.json` and runs `scripts/sync.sh`. Tell the user in one line what you
-recorded, because the list decides what their pushes may contain.
+Each change saves the local private list. Never commit the list, its names, or its account
+mappings to this repository, and never add an exemption for this personal repository.
 
 ## Before posting text to a repository
 

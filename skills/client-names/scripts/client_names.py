@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Keep client names out of repositories they do not belong in.
 
-The list lives beside this script in ../names.json, inside Marble,
-so it travels to every machine that syncs that repository.
+The private list lives in .private/client-names.json at the repository root.
+It is local and ignored; never commit or synchronize its contents.
 
 Commands:
   add NAME --client C [--kind K] [--allow-remote PATTERN]   record a name
@@ -13,8 +13,8 @@ Commands:
   scan-push REMOTE_NAME URL < refs                           the pre-push hook entry point
   install                                                    point git at the hooks and link the skill
 
-add, remove and allow commit names.json and run scripts/sync.sh, so the change
-reaches every machine. Pass --no-sync to skip that.
+add, remove and allow save the local list. --no-sync remains accepted for
+compatibility and suppresses the local-save notice.
 """
 
 from __future__ import annotations
@@ -31,8 +31,8 @@ from dataclasses import dataclass
 from pathlib import Path
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
-LIST_PATH = SKILL_DIR / "names.json"
 REPO_DIR = SKILL_DIR.parent.parent
+LIST_PATH = Path(os.environ.get("MARBLE_CLIENT_NAMES_PATH", REPO_DIR / ".private" / "client-names.json"))
 HOOKS_DIR = SKILL_DIR / "hooks"
 ZERO = "0" * 40
 KINDS = {"company", "org", "person", "agent", "product", "identifier", "other"}
@@ -42,7 +42,9 @@ KINDS = {"company", "org", "person", "agent", "product", "identifier", "other"}
 
 
 def load(path: Path = LIST_PATH) -> dict:
-    data = json.loads(path.read_text(encoding="utf-8"))
+    data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {
+        "version": 1, "allowed_everywhere": [], "clients": []
+    }
     if data.get("version") != 1 or not isinstance(data.get("clients"), list):
         raise ValueError(f"{path}: expected version 1 with a clients list")
     data.setdefault("allowed_everywhere", [])
@@ -53,6 +55,7 @@ def load(path: Path = LIST_PATH) -> dict:
 
 
 def save(data: dict, path: Path = LIST_PATH) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     fd, tmp = tempfile.mkstemp(dir=path.parent, prefix=".names.", suffix=".tmp")
     with os.fdopen(fd, "w", encoding="utf-8") as fh:
         json.dump(data, fh, indent=2, ensure_ascii=False)
@@ -71,25 +74,8 @@ def client_entry(data: dict, client: str, create: bool) -> dict | None:
     return c
 
 
-def sync(message: str) -> None:
-    rel = LIST_PATH.relative_to(REPO_DIR)
-    subprocess.run(["git", "-C", str(REPO_DIR), "add", "--", str(rel)], check=True)
-    staged = subprocess.run(
-        ["git", "-C", str(REPO_DIR), "diff", "--cached", "--quiet", "--", str(rel)]
-    )
-    if staged.returncode == 0:
-        return
-    subprocess.run(
-        ["git", "-C", str(REPO_DIR), "commit", "-q", "-m", message, "--", str(rel)],
-        check=True,
-    )
-    result = subprocess.run([str(REPO_DIR / "scripts" / "sync.sh")])
-    if result.returncode != 0:
-        print(
-            "client-names: committed locally, but sync.sh refused; run it again "
-            "once the working tree is clean",
-            file=sys.stderr,
-        )
+def sync(_message: str) -> None:
+    print("client-names: saved locally; private names are never committed")
 
 
 # --- matching -----------------------------------------------------------------

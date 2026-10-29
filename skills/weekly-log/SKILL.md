@@ -5,6 +5,11 @@ description: Keep a running log of each project's week in its own file, and turn
 
 # Weekly Log
 
+Logs stay local and ignored. Private account and repository mappings belong in
+`.private/weekly-log.json` at this repository's root, or `MARBLE_WEEKLY_LOG_CONFIG`.
+The versioned configuration is an empty template. Only explicitly mapped repositories
+are included. Never commit logs or private mappings to this repository.
+
 Each project keeps its own file per week, so every update is self-contained and goes to its own
 audience. A week closes on **Friday at 10:00 local time** (`closes_friday_at` in `config.json`)
 and the next one opens at that instant. Files are named for the Friday they close:
@@ -43,7 +48,7 @@ it. Plain language for someone who did not watch the work happen. `sync.py` neve
 **Log.** The raw record, which `sync.py` reconciles:
 
 - `config.json` maps each repository to its project name; the slug is that name in lower case
-  with hyphens. A repository missing from it gets its bare name, so add it when that happens.
+  with hyphens. A repository missing from the local mapping is excluded.
 - Each bullet opens with its status: `Next`, `Blocked`, `In review`, `Merged`, `Shipped`, `Closed`,
   `Decided` or `Found`. Bullets sort in that order.
 - One line per bullet. Say what changed or was decided, not how. No reasoning, statistics or
@@ -102,6 +107,6 @@ hook names the projects still unsent. When asked for an update, or when reminded
 3. Show each project's summary for approval, separately. The summary is the update; the log stays
    behind as the record. Never send it without a clear yes in chat.
 4. After one is sent, run `sync.py --sent <slug>` (or `--sent` for all) so its reminder stops.
-5. Commit and push this repository with `scripts/sync.sh`.
+5. Keep the logs and private configuration local; never commit or push them here.
 
-Where each project's update is sent is not decided yet. Ask the first time, then write it here.
+Ask where an update should be sent the first time, then record that in local private configuration.

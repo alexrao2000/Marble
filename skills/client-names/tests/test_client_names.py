@@ -61,7 +61,7 @@ class Push(unittest.TestCase):
         self.addCleanup(shutil.rmtree, self.tmp)
         self.list_path = self.tmp / "names.json"
         self.list_path.write_text(json.dumps(LIST))
-        # the hook reads names.json beside the script, so run a copy of the skill
+        # The hook reads the configured local registry while exercising real pushes.
         self.skill = self.tmp / "skill"
         shutil.copytree(SKILL / "scripts", self.skill / "scripts")
         shutil.copytree(SKILL / "hooks", self.skill / "hooks", symlinks=True)
@@ -72,6 +72,7 @@ class Push(unittest.TestCase):
         subprocess.run(["git", "init", "-q", "-b", "main", str(self.work)], check=True)
         self.env = {
             **os.environ,
+            "MARBLE_CLIENT_NAMES_PATH": str(self.list_path),
             "GIT_CONFIG_GLOBAL": str(self.tmp / "gitconfig"),
             "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t",
             "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t",
@@ -136,12 +137,28 @@ class Push(unittest.TestCase):
         body.write_text("A proposal. Tested with Acme.\n")
         r = subprocess.run([sys.executable, str(self.skill / "scripts" / "client_names.py"),
                             "scan-text", str(body), "--remote", "github.com/public/repo"],
-                           capture_output=True, text=True)
+                           capture_output=True, text=True, env=self.env)
         self.assertEqual(r.returncode, 1)
         r = subprocess.run([sys.executable, str(self.skill / "scripts" / "client_names.py"),
                             "scan-text", str(body), "--remote", "github.com/acme-corp/app"],
-                           capture_output=True, text=True)
+                           capture_output=True, text=True, env=self.env)
         self.assertEqual(r.returncode, 0)
+
+    def test_add_stays_local_without_committing(self):
+        self.commit(".gitignore", ".private/\n", "Ignore private data")
+        head = self.git("rev-parse", "HEAD").stdout
+        private_list = self.work / ".private" / "client-names.json"
+        env = {**self.env, "MARBLE_CLIENT_NAMES_PATH": str(private_list)}
+        result = subprocess.run(
+            [sys.executable, str(self.skill / "scripts" / "client_names.py"),
+             "add", "Fictional Customer", "--client", "Fictional Customer"],
+            capture_output=True, text=True, env=env,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertTrue(private_list.exists())
+        self.assertEqual(self.git("rev-parse", "HEAD").stdout, head)
+        self.assertEqual(self.git("status", "--porcelain").stdout, "")
+        self.assertEqual(self.git("ls-files", ".private").stdout, "")
 
 
 if __name__ == "__main__":

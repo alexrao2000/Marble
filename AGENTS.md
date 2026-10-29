@@ -1,3 +1,7 @@
 # Repository privacy
 
-Do not mention or describe another repository owned by Alex or by an organization he belongs to unless that repository is publicly accessible. This applies to file contents and names, commit messages, and other repository metadata. Avoid identifying details such as project names, links, issue numbers, and code when they would reveal a private repository. If public visibility cannot be verified, treat the repository as private and use a non-identifying description instead.
+Keep this repository personal and portable. Do not put outside organization, company,
+or unrelated repository names in tracked files, filenames, commit messages, or metadata.
+Use generic examples. Keep private name registries, project logs, account mappings,
+and project-specific records in local, ignored storage. Public visibility alone does
+not authorize naming another organization or repository.

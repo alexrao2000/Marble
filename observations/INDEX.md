@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [CUA live tab access can recover after a REPL reset](cua-browser-user-repl-reset.md) — Codex desktop · observed 2026-10-30 · browser.user unavailable cleared after resetting JavaScript handles and rebinding the same tab
+
 - [Slack classifies uploaded .md by content, not extension](slack-md-upload-classification.md) — Slack · observed 2026-09-14 · non-ASCII bytes read as Binary; a few Pascal reserved words in prose read as Pascal; both hide the document
 
 - [Godot background native capture can wait for redraw](godot-macos-background-capture.md) — Godot 4.5.1 / macOS 27.0.1 · observed 2026-10-29 · timers continue while frame_post_draw waits; explicit force_draw completes the capture

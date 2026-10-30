@@ -15,6 +15,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 - [Godot headless audio needs a mixer drain before immediate test exit](godot-headless-audio-shutdown.md) — Godot 4.5.1 headless · observed 2026-10-29 · imported WAV playback can survive one-frame shutdown; explicit stop plus 200 ms drain clears it
 
+- [Godot sphere primitives include collapsed pole triangles](godot-spheremesh-collapsed-poles.md) — Godot 4.5.1 SphereMesh · observed 2026-10-29 · filter zero-area pole triples before strict topology/normal checks
+
 ## Retired
 
 (none)

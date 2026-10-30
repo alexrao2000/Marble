@@ -21,7 +21,7 @@ A temporary SceneTree probe loaded the local app and attached a Node logging bot
 
 Project settings were viewport_width=1440, viewport_height=900, window/stretch/mode="canvas_items". Engine: 4.5.1.stable.official.f62fdbde1. Logs: /private/tmp/poem-viewer-input-probe.log and /private/tmp/poem-viewer-input-probe-sized.log. These temporary logs may expire.
 
-An attempted Window.push_input(event, true) in the larger gesture audit crashed inside the engine during repeated wheel injection. That path was not isolated into a minimal reproducer and is not established as a general engine defect; the verified solution uses Input.parse_input_event with an explicit root Window size.
+The larger gesture audit also crashed in Viewport::_gui_input_event when its synthetic sequence sent repeated wheel-up presses followed by wheel-down presses without releases. This occurred with both Window.push_input and Input.parse_input_event, even after fixing the window size. Adding a separate matching release event after each wheel press made the same complete audit pass. This establishes a valid test-event sequence, not a general defect in normal hardware input. A small paired-event probe and the complete 33,696-layout/gesture audit both exited successfully; actual tests instantiate a fresh event for each injection.
 
 ## Re-check
 
@@ -29,8 +29,10 @@ In a headless SceneTree test for a stretched 1440×900 project, log root.size an
 
 ## Apply
 
-Set the test Window size explicitly before pointer-dispatch integration tests, or deliberately convert logical target coordinates into physical-window coordinates. Prefer actual dispatch for interaction checks; retain explicit SubViewport dimensions for projection-only tests. Do not infer that product mouse handling is broken from an off-window injected event. This costs one test setup assignment and does not alter production code.
+Set the test Window size explicitly before pointer-dispatch integration tests, or deliberately convert logical target coordinates into physical-window coordinates. Prefer actual dispatch for interaction checks; retain explicit SubViewport dimensions for projection-only tests. Do not infer that product mouse handling is broken from an off-window injected event. Use complete press/release pairs and fresh event instances when generating wheel input. These changes affect test setup only and do not alter production code.
 
 ## History
 
 - 2026-10-30 — Codex measured the physical/logical mismatch and verified explicit Window sizing in a controlled comparison during Poem's viewer gesture work.
+
+- 2026-10-30 — Codex isolated the additional synthetic-wheel issue: matching release events resolved the crash in the unchanged full gesture audit after Window sizing was already corrected.

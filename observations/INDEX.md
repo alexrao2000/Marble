@@ -11,6 +11,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 - [Godot headless MultiMesh readback returns defaults](godot-headless-multimesh-readback.md) — Godot 4.5.1 headless · observed 2026-10-29 · individual transform/color getters return defaults; bulk buffers retain submitted data
 
+- [Godot initial timers can precede tween updates](godot-initial-timer-before-tween.md) — Godot 4.5.1 headless · observed 2026-10-29 · short startup timers are not evidence that new tweens advanced; observe process frames
+
 ## Retired
 
 (none)

@@ -21,6 +21,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 - [Godot sandbox log rotation can crash before script startup](godot-sandbox-log-rotation.md) — Godot 4.5.1 / macOS sandbox · observed 2026-10-30 · explicit writable --log-file avoids the measured default-user-log failure
 
+- [Godot billboard label bounds expand into cubes](godot-label-billboard-bounds.md) — Godot 4.5.1 headless · observed 2026-10-30 · culling AABBs overestimate lettering; generated triangles retain the text quad
+
 ## Retired
 
 (none)

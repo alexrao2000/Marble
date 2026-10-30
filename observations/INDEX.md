@@ -27,6 +27,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 - [Godot headless pointer injection uses physical window coordinates](godot-headless-pointer-coordinates.md) — Godot 4.5.1 headless · observed 2026-10-30 · a 64×64 Window can back a 1440×900 logical viewport; explicit test Window sizing fixes dispatch
 
+- [Godot headless gradient readback depends on early binding](godot-headless-gradient-readback.md) — Godot 4.5.1 headless · observed 2026-10-30 · early RID/material binding can produce null readback; later gradient changes can retain stale pixels
+
 ## Retired
 
 (none)

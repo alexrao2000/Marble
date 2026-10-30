@@ -23,6 +23,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 - [Godot billboard label bounds expand into cubes](godot-label-billboard-bounds.md) — Godot 4.5.1 headless · observed 2026-10-30 · culling AABBs overestimate lettering; generated triangles retain the text quad
 
+- [Godot headless pointer injection uses physical window coordinates](godot-headless-pointer-coordinates.md) — Godot 4.5.1 headless · observed 2026-10-30 · a 64×64 Window can back a 1440×900 logical viewport; explicit test Window sizing fixes dispatch
+
 ## Retired
 
 (none)

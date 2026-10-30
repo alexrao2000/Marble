@@ -17,6 +17,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 - [Godot sphere primitives include collapsed pole triangles](godot-spheremesh-collapsed-poles.md) — Godot 4.5.1 SphereMesh · observed 2026-10-29 · filter zero-area pole triples before strict topology/normal checks
 
+- [Godot preload call site can retain visual resources at shutdown](godot-preload-shutdown-retention.md) — Godot 4.5.1 / Poem · observed 2026-10-30 · direct shared-backdrop preload leaks in this dependency graph; runtime load exits cleanly
+
 ## Retired
 
 (none)

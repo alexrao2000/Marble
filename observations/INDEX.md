@@ -19,6 +19,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 - [Godot preload call site can retain visual resources at shutdown](godot-preload-shutdown-retention.md) — Godot 4.5.1 / Poem · observed 2026-10-30 · direct shared-backdrop preload leaks in this dependency graph; runtime load exits cleanly
 
+- [Godot sandbox log rotation can crash before script startup](godot-sandbox-log-rotation.md) — Godot 4.5.1 / macOS sandbox · observed 2026-10-30 · explicit writable --log-file avoids the measured default-user-log failure
+
 ## Retired
 
 (none)

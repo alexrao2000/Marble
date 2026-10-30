@@ -13,6 +13,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 - [Godot initial timers can precede tween updates](godot-initial-timer-before-tween.md) — Godot 4.5.1 headless · observed 2026-10-29 · short startup timers are not evidence that new tweens advanced; observe process frames
 
+- [Godot headless audio needs a mixer drain before immediate test exit](godot-headless-audio-shutdown.md) — Godot 4.5.1 headless · observed 2026-10-29 · imported WAV playback can survive one-frame shutdown; explicit stop plus 200 ms drain clears it
+
 ## Retired
 
 (none)

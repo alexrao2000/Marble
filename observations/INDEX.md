@@ -9,6 +9,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 - [Godot background native capture can wait for redraw](godot-macos-background-capture.md) — Godot 4.5.1 / macOS 27.0.1 · observed 2026-10-29 · timers continue while frame_post_draw waits; explicit force_draw completes the capture
 
+- [Godot headless MultiMesh readback returns defaults](godot-headless-multimesh-readback.md) — Godot 4.5.1 headless · observed 2026-10-29 · individual transform/color getters return defaults; bulk buffers retain submitted data
+
 ## Retired
 
 (none)

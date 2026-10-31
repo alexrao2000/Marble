@@ -15,7 +15,7 @@ In Chromium 156, an iframe with only `sandbox="allow-scripts"`, an opaque origin
 
 ## Evidence
 
-A nonce-authorized srcdoc analysis frame used default-src none, Blob-only connections/workers, no forms, no same-origin permission, and no HTTP image/script permissions. Ordinary HTTP execution inside it worked from preloaded Wasm Blobs. Calling `new RTCPeerConnection({iceServers:[]})` then close succeeded. The controlled comparison added a meta Content-Security-Policy of `webrtc 'block'` before repeating construction; it again succeeded and the browser console reported that the directive was unrecognized. No third-party STUN server, peer, or private data was contacted.
+A nonce-authorized srcdoc analysis frame used default-src none, Blob-only connections/workers, no forms, no same-origin permission, and no HTTP image/script permissions. DuckDB execution inside it worked from preloaded Wasm Blobs. Calling `new RTCPeerConnection({iceServers:[]})` then close succeeded. The controlled comparison added a meta Content-Security-Policy of `webrtc 'block'` before repeating construction; it again succeeded and the browser console reported that the directive was unrecognized. No third-party STUN server, peer, or private data was contacted.
 
 ## Re-check
 
@@ -28,3 +28,5 @@ Describe CSP resource/network controls by their tested scope. Do not call Blob-o
 ## History
 
 - 2026-10-31: Initial constructor and directive-support comparison recorded in Chromium 156.
+
+- 2026-10-31: Clarified that the successful in-frame execution was DuckDB from Blob assets, not HTTP access.

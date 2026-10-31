@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Chromium Blob-only CSP does not disable WebRTC construction](chromium-csp-webrtc-construction.md) — Chromium 156 · observed 2026-10-31 · opaque sandbox permits an empty-ICE RTCPeerConnection; webrtc CSP directive is unrecognized; connectivity was not tested
+
 - [DuckDB-Wasm Blob extension URLs need filename fragments](duckdb-wasm-blob-extension-entrypoint.md) — DuckDB-Wasm 1.32.0 / Chromium 156 · observed 2026-10-31 · signed JSON/Parquet readers run under Blob-only connect policy when fragments preserve entrypoint names
 
 - [Bundled Python sandbox startup needs a literal root read](python-sandbox-root-read.md) — CPython 3.12.14 / macOS 27.0.1 · observed 2026-10-31 · filesystem allowlist needs the root directory itself; home data and network restrictions still hold

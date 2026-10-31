@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Bundled Python sandbox startup needs a literal root read](python-sandbox-root-read.md) — CPython 3.12.14 / macOS 27.0.1 · observed 2026-10-31 · filesystem allowlist needs the root directory itself; home data and network restrictions still hold
+
 - [CUA live tab access can recover after a REPL reset](cua-browser-user-repl-reset.md) — Codex desktop · observed 2026-10-30 · browser.user unavailable cleared after resetting JavaScript handles and rebinding the same tab
 
 - [Slack classifies uploaded .md by content, not extension](slack-md-upload-classification.md) — Slack · observed 2026-09-14 · non-ASCII bytes read as Binary; a few Pascal reserved words in prose read as Pascal; both hide the document

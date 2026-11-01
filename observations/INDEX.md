@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [GitHub issue search can return ordinary issues for an is:pr query](github-issue-search-pr-qualifier.md) — Codex GitHub connector · observed 2026-11-01 · direct PR listing confirmed no open PRs
+
 - [Chromium approvals above opaque iframes can miss input](chromium-sandbox-overlay-input.md) — Chromium 156 / Playwright 1.64.1 · observed 2026-10-31 · overlays missed parent events; permanently separate ingress controls passed measured workflows
 
 - [Chromium Blob-only CSP does not disable WebRTC construction](chromium-csp-webrtc-construction.md) — Chromium 156 · observed 2026-10-31 · opaque sandbox permits an empty-ICE RTCPeerConnection; webrtc CSP directive is unrecognized; connectivity was not tested

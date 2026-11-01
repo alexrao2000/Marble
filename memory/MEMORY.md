@@ -1,3 +1,4 @@
+- [Keep personal setup out of repositories](feedback_keep_personal_setup_out_of_repositories.md) — tool setup stays local; never commit credentials, authentication, or personal configuration, even to private repositories
 - [Plain English](feedback_plain_english.md) — the one style rule; write the way a competent colleague talks, and being understood beats being distinctive
 - [No outside names](feedback_no_outside_names.md) — do not mention outside organizations, companies, or repositories; keep other work generic unless explicitly requested
 - [AGENTS.md 60-line cap](feedback_agents_md_60_line_cap.md) — holds for project files too; pay for plain English by deleting restatements and borrowed reasons, not by lifting the cap

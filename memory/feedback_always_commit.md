@@ -12,6 +12,7 @@ Always commit work to git. Do not leave generated files, scripts, or other deliv
 
 The only exceptions are:
 - Files containing sensitive secrets (API keys, credentials, passwords)
+- Personal machine or cloud configuration and sensitive audit evidence; keep these local, per [the repository privacy rule](feedback_keep_personal_setup_out_of_repositories.md)
 - Large datasets that are not yet gitignored
 
 **Why:** Work that is not committed is invisible to the user and to other sessions. The user has lost work multiple times because changes lived only in ephemeral locations. Committing is the default; not committing requires a reason.

@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [CUA viewport overrides may affect a different bound tab](cua-viewport-selected-tab.md) — Codex desktop in-app browser · observed 2026-11-03 · measure the intended tab after setting its viewport
+
 - [GitHub issue search can return ordinary issues for an is:pr query](github-issue-search-pr-qualifier.md) — Codex GitHub connector · observed 2026-11-01 · direct PR listing confirmed no open PRs
 
 - [Chromium approvals above opaque iframes can miss input](chromium-sandbox-overlay-input.md) — Chromium 156 / Playwright 1.64.1 · observed 2026-10-31 · overlays missed parent events; permanently separate ingress controls passed measured workflows

@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [A direct Page token lookup can succeed when the managed-Page list is empty](graph-api-direct-page-token-lookup.md) — social platform Graph API v26.0 · observed 2026-11-04 · verify the derived token against the known Page ID
+
 - [Hosted Windows ACL queries can exceed a ten-second deadline](windows-runner-acl-query-timeout.md) — Windows hosted runner / PowerShell 5 · observed 2026-11-03 · peer jobs passed; permission checks must still fail closed
 
 - [CUA viewport overrides may affect a different bound tab](cua-viewport-selected-tab.md) — Codex desktop in-app browser · observed 2026-11-03 · measure the intended tab after setting its viewport

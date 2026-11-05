@@ -5,7 +5,7 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
-- [Quaternius Standard base-character eye normal URI is mismatched](quaternius-standard-eye-normal-uri.md) — Universal Base Characters Standard · observed 2026-11-05 · use the verified adjacent Godot normal texture
+- [Quaternius Standard base-character normal URIs are mismatched](quaternius-standard-eye-normal-uri.md) — Universal Base Characters Standard · observed 2026-11-05 · use the verified adjacent Godot normal textures
 
 - [Godot physics-frame input pulses can erase attack edges](godot-physics-frame-input-pulses.md) — Godot 4.5.1 headless · observed 2026-11-04 · hold injected presses across full physics ticks
 

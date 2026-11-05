@@ -53,6 +53,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 - [Godot headless gradient readback depends on early binding](godot-headless-gradient-readback.md) — Godot 4.5.1 headless · observed 2026-10-30 · early RID/material binding can produce null readback; later gradient changes can retain stale pixels
 
+- [Godot paused crossfades need clock advancement](godot-paused-crossfade-seek.md) — Godot 4.5.1 AnimationPlayer · observed 2026-11-05 · seek-only paused sampling can retain the outgoing pose
+
 ## Retired
 
 (none)

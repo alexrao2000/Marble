@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Quaternius Standard base-character eye normal URI is mismatched](quaternius-standard-eye-normal-uri.md) — Universal Base Characters Standard · observed 2026-11-05 · use the verified adjacent Godot normal texture
+
 - [Godot physics-frame input pulses can erase attack edges](godot-physics-frame-input-pulses.md) — Godot 4.5.1 headless · observed 2026-11-04 · hold injected presses across full physics ticks
 
 - [npm ci can clear a shared node_modules symlink target](npm-ci-node-modules-symlink-cleanup.md) — npm 11.19.1 / Node 24.22.2 on macOS · observed 2026-11-04 · unlink directory symlinks before clean installs

@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Granola background actions can leave stale immediate snapshots](granola-background-action-stale-state.md) — Granola macOS through Codex Computer Use · observed 2026-11-05 · check fresh state and the connector before repeating a mutation
+
 - [Vercel deployment timeouts can complete in the background](vercel-deployment-timeout-background-completion.md) — Vercel API / CLI 50.32.5 · observed 2026-11-05 · resolve the canonical alias and exact SHA before retrying
 
 - [Uvicorn reloaders can outlive their workers after overlapping interrupts](uvicorn-reloader-overlapping-interrupts.md) — Uvicorn 0.36.0/concurrently 9.1.2 on macOS · observed 2026-11-05 · bound request shutdown and owned reloader-group cleanup separately

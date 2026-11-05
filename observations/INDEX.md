@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Uvicorn reloaders can outlive their workers after overlapping interrupts](uvicorn-reloader-overlapping-interrupts.md) — Uvicorn 0.36.0/concurrently 9.1.2 on macOS · observed 2026-11-05 · bound request shutdown and owned reloader-group cleanup separately
+
 - [Godot exported wrappers need editable declarations for nested attachments](godot-export-instanced-attachments.md) — Godot 4.5.1 scene export · observed 2026-11-05 · project loading alone did not detect dropped sockets
 
 - [Quaternius Standard base-character normal URIs are mismatched](quaternius-standard-eye-normal-uri.md) — Universal Base Characters Standard · observed 2026-11-05 · use the verified adjacent Godot normal textures

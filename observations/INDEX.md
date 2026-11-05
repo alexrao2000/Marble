@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [npm ci can clear a shared node_modules symlink target](npm-ci-node-modules-symlink-cleanup.md) — npm 11.19.1 / Node 24.22.2 on macOS · observed 2026-11-04 · unlink directory symlinks before clean installs
+
 - [A direct Page token lookup can succeed when the managed-Page list is empty](graph-api-direct-page-token-lookup.md) — social platform Graph API v26.0 · observed 2026-11-04 · verify the derived token against the known Page ID
 
 - [Hosted Windows ACL queries can exceed a ten-second deadline](windows-runner-acl-query-timeout.md) — Windows hosted runner / PowerShell 5 · observed 2026-11-03 · peer jobs passed; permission checks must still fail closed

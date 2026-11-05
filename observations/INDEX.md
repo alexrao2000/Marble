@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [PCO form selections use field-prefixed keys and option labels](pco-selected-options-response-shape.md) — People API 2025-07-17 · observed 2026-11-05 · resolve fixed options before aggregating referrals
+
 - [Granola background actions can leave stale immediate snapshots](granola-background-action-stale-state.md) — Granola macOS through Codex Computer Use · observed 2026-11-05 · check fresh state and the connector before repeating a mutation
 
 - [Vercel deployment timeouts can complete in the background](vercel-deployment-timeout-background-completion.md) — Vercel API / CLI 50.32.5 · observed 2026-11-05 · resolve the canonical alias and exact SHA before retrying

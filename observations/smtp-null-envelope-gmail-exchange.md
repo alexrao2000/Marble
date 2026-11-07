@@ -16,6 +16,7 @@ and used an empty SMTP return address. A probe from the same client to one
 Exchange Online tenant with the same From and empty return address was queued.
 The recipient found the original Exchange Online probe in Junk. The probe
 claiming the recipient's own address was quarantined after SMTP acceptance.
+The receiving headers confirmed DMARC failure and a quarantine action.
 The recipient reported that a matching control sent through their signed-in
 mailbox reached the Inbox. Outlook.com consumer delivery was not tested.
 
@@ -34,7 +35,12 @@ with a Gmail From and with its own recipient address in From. The probe
 subjects and message IDs differed. The recipient supplied the quarantine
 record for the probe claiming their own address. It showed Phish as the
 reason, Anti-phishing policy as the policy type, and no sender address
-override. The specific detection that triggered the verdict is unknown.
+override. The recipient later supplied the receiving headers. The empty
+return path caused SPF to evaluate the SMTP greeting, which failed. DKIM
+was absent. The receiver recorded dmarc=fail action=quarantine and
+compauth=fail reason=000, an explicit authentication failure. The
+anti-spam report categorized the message as CAT:SPOOF. The headers do
+not establish whether other detections contributed.
 
 The recipient sent a matching control from their signed-in mailbox to
 themselves and confirmed Inbox placement. The submission route and sender
@@ -63,3 +69,5 @@ policy and subsequent filtering can change the outcome.
   that used their own address as both From and To.
 - 2026-11-07 — The recipient confirmed Inbox placement for the signed-in
   self-send control.
+- 2026-11-07 — The recipient supplied receiving headers confirming
+  DMARC failure and quarantine for the unsigned self-addressed probe.

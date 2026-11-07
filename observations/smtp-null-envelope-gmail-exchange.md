@@ -103,8 +103,11 @@ signals caused Junk placement.
 
 A follow-up Resend test kept the sender address, recipient, and DNS settings.
 It used a different subject and body. The recipient reported Inbox placement.
-The receiving headers and source IP were not inspected, so this comparison
-does not isolate message content from other filtering signals.
+The receiving headers show the same passing authentication results as the
+Junk copy. They also show SCL 1 and dest:I. Both messages arrived through
+the same sending service, but their public source IPs differed. Message
+content and source IP both changed, so the comparison does not isolate
+either as the cause of the different folder placement.
 
 ## Re-check
 
@@ -148,3 +151,5 @@ subsequent filtering can change the outcome.
   and composite authentication passed for the Resend retry placed in Junk.
 - 2026-11-07 — The recipient confirmed that a Resend follow-up with
   different message content reached the Hotmail Inbox.
+- 2026-11-07 — The Inbox headers showed passing authentication and a
+  different sending IP from the authenticated Junk copy.

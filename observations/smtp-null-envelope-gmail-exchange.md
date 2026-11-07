@@ -109,6 +109,13 @@ the same sending service, but their public source IPs differed. Message
 content and source IP both changed, so the comparison does not isolate
 either as the cause of the different folder placement.
 
+A direct SMTP follow-up kept the subject, body, and recipient from the
+Resend message that reached Inbox. It used a different controlled Hotmail
+address in From and an empty SMTP return path. Hotmail returned 250 2.6.0
+after DATA, and the recipient found the copy in Junk. The From domain and
+sending route differed from the Resend copy, and the new receiving
+headers were not inspected.
+
 ## Re-check
 
 During the next authorized provider comparison, use controlled recipients and
@@ -153,3 +160,5 @@ subsequent filtering can change the outcome.
   different message content reached the Hotmail Inbox.
 - 2026-11-07 — The Inbox headers showed passing authentication and a
   different sending IP from the authenticated Junk copy.
+- 2026-11-07 — Hotmail queued a direct unsigned probe with the subject
+  and body of the Resend Inbox copy. The direct probe reached Junk.

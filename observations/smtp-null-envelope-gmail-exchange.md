@@ -16,7 +16,8 @@ and used an empty SMTP return address. A probe from the same client to one
 Exchange Online tenant with the same From and empty return address was queued.
 The recipient found the original Exchange Online probe in Junk. The probe
 claiming the recipient's own address was quarantined after SMTP acceptance.
-The receiving headers confirmed DMARC failure and a quarantine action.
+The receiving headers confirmed DMARC failure and a quarantine action,
+including for a later probe that passed SPF for an unrelated return domain.
 The recipient reported that a matching control sent through their signed-in
 mailbox reached the Inbox. Outlook.com consumer delivery was not tested.
 
@@ -54,6 +55,14 @@ return path. Both lacked DKIM signatures and produced dmarc=fail
 action=quarantine, compauth=fail reason=000, and CAT:SPOOF. The recipient
 supplied the receiving headers. Folder placement was not stated.
 
+A final unsigned probe used a separate controlled domain for the SMTP
+return path. A temporary SPF TXT record authorized the sending IP.
+Exchange Online queued the message at DATA and recorded spf=pass for
+the return domain, dkim=none, and dmarc=fail action=quarantine for the
+organization-domain From. Composite authentication failed with
+reason=000 and the report again showed CAT:SPOOF. The recipient
+confirmed that the probe appeared in Defender Quarantine.
+
 ## Re-check
 
 During the next authorized provider comparison, use controlled recipients and
@@ -80,3 +89,5 @@ policy and subsequent filtering can change the outcome.
   DMARC failure and quarantine for the unsigned self-addressed probe.
 - 2026-11-07 — The recipient supplied headers from two return-path variants.
   SPF changed from fail to softfail, while the DMARC action stayed quarantine.
+- 2026-11-07 — The recipient confirmed quarantine even with SPF passing
+  for an unrelated return domain.

@@ -122,6 +122,15 @@ accepted the SMTP envelope but rejected DATA with 550 5.7.26,
 reporting that SPF and DKIM did not pass. The comparable Hotmail
 probe had been accepted and placed in Junk.
 
+Two subsequent unsigned probes used the same controlled consumer Hotmail
+recipient, sending client, TLS setup, and plain-text body. Hotmail accepted
+both SMTP envelopes. After DATA, it queued the probe with a Hotmail From
+and a matching nonempty envelope sender (250 2.6.0). It rejected the probe
+with a Gmail From and an empty envelope sender (550 5.7.1, AS9031519),
+citing missing SPF, DKIM, or DMARC authentication. The From domain,
+envelope sender, and subject differed, so the comparison does not isolate
+the cause. Mailbox placement of the queued probe was unverified.
+
 ## Re-check
 
 During the next authorized provider comparison, use controlled recipients and
@@ -170,3 +179,6 @@ subsequent filtering can change the outcome.
   and body of the Resend Inbox copy. The direct probe reached Junk.
 - 2026-11-07 — Gmail rejected a probe using the same Hotmail From
   and content as the direct probe that Hotmail delivered to Junk.
+- 2026-11-07 — Hotmail queued an unsigned probe with a matching Hotmail
+  envelope sender and rejected an unsigned Gmail From probe with an empty
+  envelope sender.

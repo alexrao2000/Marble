@@ -83,6 +83,14 @@ dest:I and OFR:SpamFilterPass, and the organization SCL was 1. The pasted
 control had an empty subject and body. Content and submission route differed
 between messages, so this comparison does not isolate a filtering signal.
 
+A later Resend API submission from a custom domain to consumer Hotmail
+returned a message ID. The recipient supplied Resend's bounce detail,
+which recorded Hotmail's SMTP 550 5.7.1 authentication rejection
+(AS9031519), despite a generic temporary failure label in the dashboard.
+DNS lookups found Resend's DKIM key and SPF on the return domain, but no
+DMARC record for the visible From domain. No receiving headers were
+available to establish which message-level checks passed.
+
 ## Re-check
 
 During the next authorized provider comparison, use controlled recipients and
@@ -117,3 +125,5 @@ subsequent filtering can change the outcome.
   with action=none, a composite authentication failure, and a Junk verdict.
 - 2026-11-07 — The recipient confirmed Inbox placement for the signed-in
   Hotmail control and supplied its passing authentication results.
+- 2026-11-07 — The recipient supplied the SMTP rejection for a Resend test
+  from a custom domain without a published DMARC record.

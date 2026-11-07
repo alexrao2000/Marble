@@ -68,7 +68,11 @@ The client submitted one unsigned plain-text probe to the consumer Hotmail
 MX over STARTTLS. The visible From and To used the same recipient address.
 The SMTP return path was empty. The server returned 250 2.6.0 after DATA
 and reported that the message was queued. The recipient found it in Junk.
-The receiving headers were not inspected.
+The recipient supplied headers showing SPF failure for the SMTP greeting,
+no DKIM signature, dmarc=fail action=none, and compauth=fail reason=001.
+Outlook recorded SCL 5 and RF:JunkEmail. The headers record the
+authentication and placement results but do not isolate the signals
+that produced the spam verdict.
 
 ## Re-check
 
@@ -100,3 +104,5 @@ subsequent filtering can change the outcome.
   for an unrelated return domain.
 - 2026-11-07 — Consumer Outlook.com queued an unsigned probe with the same Hotmail address in From and To.
 - 2026-11-07 — The recipient confirmed the consumer Hotmail probe reached Junk.
+- 2026-11-07 — The consumer Hotmail headers confirmed a DMARC failure
+  with action=none, a composite authentication failure, and a Junk verdict.

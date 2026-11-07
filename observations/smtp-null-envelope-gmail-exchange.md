@@ -20,7 +20,8 @@ The receiving headers confirmed DMARC failure and a quarantine action,
 including for a later probe that passed SPF for an unrelated return domain.
 The recipient reported that a matching control sent through their signed-in
 mailbox reached the Inbox. Consumer Outlook.com accepted a comparable
-probe addressed from and to the same Hotmail mailbox and delivered it to Junk.
+probe addressed from and to the same Hotmail mailbox and delivered it to Junk. A
+signed-in self-send reached the Inbox and passed SPF, DKIM, and DMARC.
 
 ## Evidence
 
@@ -74,6 +75,14 @@ Outlook recorded SCL 5 and RF:JunkEmail. The headers record the
 authentication and placement results but do not isolate the signals
 that produced the spam verdict.
 
+The signed-in Hotmail control used the same visible From and To addresses.
+The recipient reported Inbox placement. The receiving headers recorded
+spf=pass for the Hotmail return domain, dkim=pass for the Hotmail signing
+domain, dmarc=pass, and compauth=pass reason=100. The mailbox header recorded
+dest:I and OFR:SpamFilterPass, and the organization SCL was 1. The pasted
+control had an empty subject and body. Content and submission route differed
+between messages, so this comparison does not isolate a filtering signal.
+
 ## Re-check
 
 During the next authorized provider comparison, use controlled recipients and
@@ -106,3 +115,5 @@ subsequent filtering can change the outcome.
 - 2026-11-07 — The recipient confirmed the consumer Hotmail probe reached Junk.
 - 2026-11-07 — The consumer Hotmail headers confirmed a DMARC failure
   with action=none, a composite authentication failure, and a Junk verdict.
+- 2026-11-07 — The recipient confirmed Inbox placement for the signed-in
+  Hotmail control and supplied its passing authentication results.

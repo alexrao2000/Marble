@@ -101,6 +101,11 @@ delivery header reported auth:1, dest:J, and RF:JunkEmail, and the
 organization SCL was 5. The headers do not identify which spam-filter
 signals caused Junk placement.
 
+A follow-up Resend test kept the sender address, recipient, and DNS settings.
+It used a different subject and body. The recipient reported Inbox placement.
+The receiving headers and source IP were not inspected, so this comparison
+does not isolate message content from other filtering signals.
+
 ## Re-check
 
 During the next authorized provider comparison, use controlled recipients and
@@ -141,3 +146,5 @@ subsequent filtering can change the outcome.
   Junk in the consumer Hotmail mailbox.
 - 2026-11-07 — Hotmail's receiving headers confirmed SPF, DKIM, DMARC,
   and composite authentication passed for the Resend retry placed in Junk.
+- 2026-11-07 — The recipient confirmed that a Resend follow-up with
+  different message content reached the Hotmail Inbox.

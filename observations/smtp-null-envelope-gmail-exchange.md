@@ -20,7 +20,7 @@ The receiving headers confirmed DMARC failure and a quarantine action,
 including for a later probe that passed SPF for an unrelated return domain.
 The recipient reported that a matching control sent through their signed-in
 mailbox reached the Inbox. Consumer Outlook.com accepted a comparable
-probe addressed from and to the same Hotmail mailbox.
+probe addressed from and to the same Hotmail mailbox and delivered it to Junk.
 
 ## Evidence
 
@@ -67,8 +67,8 @@ confirmed that the probe appeared in Defender Quarantine.
 The client submitted one unsigned plain-text probe to the consumer Hotmail
 MX over STARTTLS. The visible From and To used the same recipient address.
 The SMTP return path was empty. The server returned 250 2.6.0 after DATA
-and reported that the message was queued. Mailbox placement was unverified
-at the time of the SMTP test.
+and reported that the message was queued. The recipient found it in Junk.
+The receiving headers were not inspected.
 
 ## Re-check
 
@@ -99,3 +99,4 @@ subsequent filtering can change the outcome.
 - 2026-11-07 — The recipient confirmed quarantine even with SPF passing
   for an unrelated return domain.
 - 2026-11-07 — Consumer Outlook.com queued an unsigned probe with the same Hotmail address in From and To.
+- 2026-11-07 — The recipient confirmed the consumer Hotmail probe reached Junk.

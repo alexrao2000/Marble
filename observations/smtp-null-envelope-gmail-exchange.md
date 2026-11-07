@@ -116,6 +116,12 @@ after DATA, and the recipient found the copy in Junk. The From domain and
 sending route differed from the Resend copy, and the new receiving
 headers were not inspected.
 
+The same unsigned Hotmail From, subject, body, and empty return path
+were then used for one probe to a controlled Gmail recipient. Gmail
+accepted the SMTP envelope but rejected DATA with 550 5.7.26,
+reporting that SPF and DKIM did not pass. The comparable Hotmail
+probe had been accepted and placed in Junk.
+
 ## Re-check
 
 During the next authorized provider comparison, use controlled recipients and
@@ -162,3 +168,5 @@ subsequent filtering can change the outcome.
   different sending IP from the authenticated Junk copy.
 - 2026-11-07 — Hotmail queued a direct unsigned probe with the subject
   and body of the Resend Inbox copy. The direct probe reached Junk.
+- 2026-11-07 — Gmail rejected a probe using the same Hotmail From
+  and content as the direct probe that Hotmail delivered to Junk.

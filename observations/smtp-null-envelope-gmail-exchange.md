@@ -16,7 +16,8 @@ and used an empty SMTP return address. A probe from the same client to one
 Exchange Online tenant with the same From and empty return address was queued.
 The recipient found the original Exchange Online probe in Junk. The probe
 claiming the recipient's own address was quarantined after SMTP acceptance.
-Outlook.com consumer delivery was not tested.
+The recipient reported that a matching control sent through their signed-in
+mailbox reached the Inbox. Outlook.com consumer delivery was not tested.
 
 ## Evidence
 
@@ -34,6 +35,11 @@ subjects and message IDs differed. The recipient supplied the quarantine
 record for the probe claiming their own address. It showed Phish as the
 reason, Anti-phishing policy as the policy type, and no sender address
 override. The specific detection that triggered the verdict is unknown.
+
+The recipient sent a matching control from their signed-in mailbox to
+themselves and confirmed Inbox placement. The submission route and sender
+authentication changed together. The control headers were not inspected,
+so the comparison does not isolate a specific authentication check.
 
 ## Re-check
 
@@ -55,3 +61,5 @@ policy and subsequent filtering can change the outcome.
   original queued probe.
 - 2026-11-07 — The recipient supplied the quarantine result for the probe
   that used their own address as both From and To.
+- 2026-11-07 — The recipient confirmed Inbox placement for the signed-in
+  self-send control.

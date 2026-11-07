@@ -47,6 +47,13 @@ themselves and confirmed Inbox placement. The submission route and sender
 authentication changed together. The control headers were not inspected,
 so the comparison does not isolate a specific authentication check.
 
+Two later probes kept the same organization-domain From and recipient but
+used nonempty SMTP return paths. Exchange Online queued both at DATA. SPF
+failed for the organization-domain return path and softfailed for the Gmail
+return path. Both lacked DKIM signatures and produced dmarc=fail
+action=quarantine, compauth=fail reason=000, and CAT:SPOOF. The recipient
+supplied the receiving headers. Folder placement was not stated.
+
 ## Re-check
 
 During the next authorized provider comparison, use controlled recipients and
@@ -71,3 +78,5 @@ policy and subsequent filtering can change the outcome.
   self-send control.
 - 2026-11-07 — The recipient supplied receiving headers confirming
   DMARC failure and quarantine for the unsigned self-addressed probe.
+- 2026-11-07 — The recipient supplied headers from two return-path variants.
+  SPF changed from fail to softfail, while the DMARC action stayed quarantine.

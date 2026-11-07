@@ -91,6 +91,12 @@ DNS lookups found Resend's DKIM key and SPF on the return domain, but no
 DMARC record for the visible From domain. No receiving headers were
 available to establish which message-level checks passed.
 
+After the domain owner added a DMARC record with p=none, both authoritative
+nameservers and two public resolvers returned it. A retry through Resend
+used the same visible sender, recipient, subject, and body. The recipient
+reported that Hotmail placed the retry in Junk. The retry reached the
+mailbox, but its authentication headers had not yet been examined.
+
 ## Re-check
 
 During the next authorized provider comparison, use controlled recipients and
@@ -127,3 +133,5 @@ subsequent filtering can change the outcome.
   Hotmail control and supplied its passing authentication results.
 - 2026-11-07 — The recipient supplied the SMTP rejection for a Resend test
   from a custom domain without a published DMARC record.
+- 2026-11-07 — A Resend retry after the DMARC record was published reached
+  Junk in the consumer Hotmail mailbox.

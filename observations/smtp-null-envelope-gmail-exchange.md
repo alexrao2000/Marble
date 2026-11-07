@@ -14,7 +14,8 @@ metadata:
 Gmail rejected an unsigned, plain-text probe that claimed a Gmail From address
 and used an empty SMTP return address. A probe from the same client to one
 Exchange Online tenant with the same From and empty return address was queued.
-The recipient later found the original Exchange Online probe in Junk.
+The recipient found the original Exchange Online probe in Junk. The probe
+claiming the recipient's own address was quarantined after SMTP acceptance.
 Outlook.com consumer delivery was not tested.
 
 ## Evidence
@@ -29,7 +30,10 @@ Follow-up probes used the same SMTP method and tested both matching and
 different From and To addresses. At DATA, Gmail again returned 550 5.7.26
 for a From address from the other domain. Exchange Online queued probes
 with a Gmail From and with its own recipient address in From. The probe
-subjects and message IDs differed. Follow-up placement was not verified.
+subjects and message IDs differed. The recipient supplied the quarantine
+record for the probe claiming their own address. It showed Phish as the
+reason, Anti-phishing policy as the policy type, and no sender address
+override. The specific detection that triggered the verdict is unknown.
 
 ## Re-check
 
@@ -49,3 +53,5 @@ policy and subsequent filtering can change the outcome.
 - 2026-11-07 — Codex repeated the provider comparison with matching and
   different addresses. The recipient confirmed Junk placement for the
   original queued probe.
+- 2026-11-07 — The recipient supplied the quarantine result for the probe
+  that used their own address as both From and To.

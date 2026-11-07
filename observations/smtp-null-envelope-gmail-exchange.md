@@ -94,8 +94,12 @@ available to establish which message-level checks passed.
 After the domain owner added a DMARC record with p=none, both authoritative
 nameservers and two public resolvers returned it. A retry through Resend
 used the same visible sender, recipient, subject, and body. The recipient
-reported that Hotmail placed the retry in Junk. The retry reached the
-mailbox, but its authentication headers had not yet been examined.
+reported that Hotmail placed the retry in Junk. The headers show SPF pass
+for the custom return subdomain, DKIM pass for the visible From domain,
+DMARC pass, and composite authentication pass (reason 100). The mailbox
+delivery header reported auth:1, dest:J, and RF:JunkEmail, and the
+organization SCL was 5. The headers do not identify which spam-filter
+signals caused Junk placement.
 
 ## Re-check
 
@@ -135,3 +139,5 @@ subsequent filtering can change the outcome.
   from a custom domain without a published DMARC record.
 - 2026-11-07 — A Resend retry after the DMARC record was published reached
   Junk in the consumer Hotmail mailbox.
+- 2026-11-07 — Hotmail's receiving headers confirmed SPF, DKIM, DMARC,
+  and composite authentication passed for the Resend retry placed in Junk.

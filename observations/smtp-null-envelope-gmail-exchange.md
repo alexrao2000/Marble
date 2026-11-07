@@ -1,9 +1,9 @@
 ---
 name: smtp-null-envelope-gmail-exchange
-description: Gmail rejected an unsigned probe with an empty SMTP return address that one Exchange Online tenant queued.
+description: Gmail rejected an unsigned probe with an empty SMTP return address. Exchange Online and consumer Outlook.com queued comparable probes.
 metadata:
   type: observation
-  subject: Gmail and Exchange Online inbound SMTP
+  subject: Gmail, Exchange Online, and consumer Outlook.com inbound SMTP
   observed: 2026-11-07
   status: active
   recheck_after_days: 30
@@ -19,7 +19,8 @@ claiming the recipient's own address was quarantined after SMTP acceptance.
 The receiving headers confirmed DMARC failure and a quarantine action,
 including for a later probe that passed SPF for an unrelated return domain.
 The recipient reported that a matching control sent through their signed-in
-mailbox reached the Inbox. Outlook.com consumer delivery was not tested.
+mailbox reached the Inbox. Consumer Outlook.com accepted a comparable
+probe addressed from and to the same Hotmail mailbox.
 
 ## Evidence
 
@@ -63,6 +64,12 @@ organization-domain From. Composite authentication failed with
 reason=000 and the report again showed CAT:SPOOF. The recipient
 confirmed that the probe appeared in Defender Quarantine.
 
+The client submitted one unsigned plain-text probe to the consumer Hotmail
+MX over STARTTLS. The visible From and To used the same recipient address.
+The SMTP return path was empty. The server returned 250 2.6.0 after DATA
+and reported that the message was queued. Mailbox placement was unverified
+at the time of the SMTP test.
+
 ## Re-check
 
 During the next authorized provider comparison, use controlled recipients and
@@ -72,8 +79,8 @@ Inspect message trace or mailbox placement separately where access permits.
 ## Apply
 
 Record the final SMTP response and mailbox placement as separate outcomes.
-A queued response establishes SMTP acceptance for the tested tenant. Tenant
-policy and subsequent filtering can change the outcome.
+A queued response establishes SMTP acceptance. Recipient policy and
+subsequent filtering can change the outcome.
 
 ## History
 
@@ -91,3 +98,4 @@ policy and subsequent filtering can change the outcome.
   SPF changed from fail to softfail, while the DMARC action stayed quarantine.
 - 2026-11-07 — The recipient confirmed quarantine even with SPF passing
   for an unrelated return domain.
+- 2026-11-07 — Consumer Outlook.com queued an unsigned probe with the same Hotmail address in From and To.

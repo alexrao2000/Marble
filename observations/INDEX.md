@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Vercel curl forwards its non-interactive flag to system curl](vercel-curl-non-interactive-flag.md) — Vercel CLI 65.0.0 native on macOS · observed 2026-11-09 · omit the flag for authenticated deployment checks
+
 - [Mail providers handled unsigned SMTP probes differently](smtp-null-envelope-gmail-exchange.md) — inbound SMTP · observed 2026-11-07 · Gmail rejected a probe, Exchange Online queued probes that reached Junk or quarantine, and a consumer Outlook.com probe reached Junk
 
 - [GitHub contribution calendars separate rolling and calendar years](github-contribution-calendar-default-window.md) — GitHub.com · observed 2026-11-05 · default grid includes leading week padding

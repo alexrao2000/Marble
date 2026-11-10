@@ -18,4 +18,5 @@ Treat an interview brief pasted on its own as a design request. Start implementa
 
 - Use the supplied starter or agreed workspace. If a new project is requested, follow the user's default project-location instructions.
 - Get one real request and one end-to-end test working early. Build the agreed scope and test each core requirement through the public API, including meaningful invalid inputs and failures. Fix failures, rerun the full suite, and report actual results. Distinguish checks that replace an external dependency from live checks.
-- Deliver a short summary of the key choices, the exact test command and result, and remaining gaps. Include a manual runbook with setup, start and test commands, example requests, expected responses, and any reset step needed to reproduce the demo.
+- Keep the commands and observed results needed to reproduce setup, tests, and the demo as you build.
+- After verification, use [Project Runbook](../project-runbook/SKILL.md) to write or refresh the manual runbook against the finished code. Deliver it with a short summary of the key choices, exact test result, and remaining gaps.

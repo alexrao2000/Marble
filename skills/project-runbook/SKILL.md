@@ -17,7 +17,7 @@ During implementation, retain the setup, startup, test, and demo commands that w
 
 - Lead with the shortest verified path to a working demo. Give the working directory, prerequisites, dependency setup, required environment variable names, start command, and readiness check. Use placeholders for secrets.
 - Give the exact test command and the latest observed result. Explain how to select offline or live mode and what each mode verifies when the project supports both.
-- Default to readable, complete output for manual checks. Pretty-print JSON using the project interpreter and override database shell table formatting when extracting JSON, such as `sqlite3 -noheader -list ... | python -m json.tool`.
+- Default to readable, complete output for manual checks. Pretty-print HTTP response bodies and stored JSON using the project interpreter. Print HTTP status separately so it stays visible and the body parses as JSON. Override database shell table formatting when extracting JSON, such as `sqlite3 -noheader -list ... | python -m json.tool`.
 - Provide copy-pasteable steps to manually verify every core acceptance criterion. Use a small set of examples that covers success, invalid input, and each consequential failure. Include the expected status, relevant output values, and state changes where applicable.
 - Include the commands to stop the service or reset demo data when relevant, plus known setup problems and verification gaps. Keep the quick demo first and put the full checklist below it.
 

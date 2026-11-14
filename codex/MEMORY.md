@@ -1,4 +1,4 @@
 - [Rhetorical questions usually direct action](memory/feedback_rhetorical_questions_are_actions.md) — when Alex asks a rhetorical question that implies work, treat it as an instruction and act unless the action is materially ambiguous, risky, or needs new authority
 - [Include next steps](memory/feedback_include_next_steps.md) — follow up on results with the concrete next action when work remains
 - [Backend interview workflow](memory/feedback_backend_interview_workflow.md) — propose a design before building and carry verification through to a manual runbook in fresh chats
-- [Verify deployment environments](memory/feedback_verify_deployment_environments.md) — identify and record environment targets up front, and pause before any action that could affect production unless Alex explicitly authorized that production action
+- [Verify deployment environments](memory/feedback_verify_deployment_environments.md) — save and share each project's verified environment map, reuse it with a targeted check, and require explicit authorization for actions that could affect production

@@ -7,17 +7,24 @@ metadata:
 ---
 
 When Alex asks to deploy, test, troubleshoot, or otherwise interact with a
-deployment platform, start with read-only discovery. Identify the project's
-production, staging, development, preview, and other targets that exist.
-Verify the effective account, project, branch, domain or alias, and relevant
-backing services against platform metadata and deployment configuration.
-Names, URL patterns, and CLI defaults are clues. A preview can still use
-production data or services.
+deployment platform, look up the project's saved environment map first. Use
+platform metadata and deployment configuration to check the effective target
+for the request and any dependencies the action could affect. If the map is
+missing or the current evidence differs, use read-only discovery to verify
+the missing or changed entries. A preview can still use production data or
+services.
 
+Save one local map per project under `~/Marble/.private/deployment-environments/`.
+Make it findable by repository or deployment project. Record production,
+staging, development, preview, and any other configured environments, with
+the account or project, branches, domains or aliases, shared production
+dependencies, evidence, and verification date where applicable. Mark
+unverified entries and keep credentials out of the map.
+
+When first saving or updating a map, show Alex the environment mapping or what
+changed and link to the local note. On later requests, reuse the saved map
+and limit verification to the target and dependencies relevant to the action.
 Tell Alex which environment the requested action would reach before acting.
-Record the verified mapping, evidence, and date in local project notes for
-future sessions. Recheck the target and any dependencies the action could
-affect before relying on the mapping.
 
 Proceed with authorized read-only inspection and checks that have no material
 production impact. Before any action that could change or disrupt production,

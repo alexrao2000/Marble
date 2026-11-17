@@ -1,3 +1,5 @@
+- [Review private context before publishing](feedback_review_private_context_before_publishing.md) — confirm repository visibility and inspect code, paths, commits, and PR metadata for unauthorized private information
+- [Run checks before committing](feedback_run_checks_before_committing.md) — run relevant tests, lint, types, and builds before commits; report blocked checks clearly
 - [Keep personal setup out of repositories](feedback_keep_personal_setup_out_of_repositories.md) — tool setup stays local; never commit credentials, authentication, or personal configuration, even to private repositories
 - [Plain English](feedback_plain_english.md) — the one style rule; write the way a competent colleague talks, and being understood beats being distinctive
 - [No outside names](feedback_no_outside_names.md) — do not mention outside organizations, companies, or repositories; keep other work generic unless explicitly requested

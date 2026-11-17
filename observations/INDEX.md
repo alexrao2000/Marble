@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Supabase CLI can see projects absent from connected tools](supabase-cli-project-visibility.md) — Supabase connected tools and CLI 2.90.0 · observed 2026-11-17 · compare existing CLI access before concluding a project is inaccessible
+
 - [YouTube Analytics can report on an explicit channel when MINE resolves elsewhere](youtube-analytics-explicit-channel-id.md) — YouTube Analytics API v2 and Data API v3 · observed 2026-11-15 · verify the intended channel by its exact ID
 
 - [Vercel curl forwards its non-interactive flag to system curl](vercel-curl-non-interactive-flag.md) — Vercel CLI 65.0.0 native on macOS · observed 2026-11-09 · omit the flag for authenticated deployment checks

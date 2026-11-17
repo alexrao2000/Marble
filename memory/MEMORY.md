@@ -25,3 +25,4 @@
 - [Marble repo](reference_memory_and_skills_repo.md) — exported setup repo and local checkout; memory/ and skills/ trees
 - [Check method before restructuring](feedback_check_method_before_restructuring.md) — read the SDD and reqs/ before moving or renaming anything they may prescribe; push back with the line rather than comply
 - [Hyperlink every citation](feedback_hyperlink_citations.md) — an ADR, doc, issue, PR or file named in a PR, issue, comment or chat links to it; ADR numbers and doc paths never auto-link
+- [Clean up task downloads](feedback_clean_up_task_downloads.md) — move temporary downloads out of Downloads promptly, remove them after use, and verify cleanup

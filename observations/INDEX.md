@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Vercel fetch can misclassify an application 401](vercel-fetch-application-401.md) — connected Vercel fetch tool and CLI 50.32.5 · observed 2026-11-18 · inspect the application response through existing CLI authorization before changing protection
+
 - [Supabase database advisors attempt TLS despite sslmode=disable](supabase-advisors-local-tls.md) — Supabase CLI 2.90.0 on macOS · observed 2026-11-18 · use TLS on the disposable test database
 
 - [Supabase CLI can see projects absent from connected tools](supabase-cli-project-visibility.md) — Supabase connected tools and CLI 2.90.0 · observed 2026-11-17 · compare existing CLI access before concluding a project is inaccessible

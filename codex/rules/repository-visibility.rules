@@ -1,0 +1,20 @@
+# Repository settings are manual-only. Prefix rules cannot isolate --visibility
+# at every argument position, so block the parent command rather than allowing
+# an automatic reviewer to approve it. This is a CLI guard, not an API/browser
+# security boundary. Do not bypass it through another tool or credential.
+prefix_rule(
+    pattern = [["gh", "/opt/homebrew/bin/gh", "/usr/local/bin/gh", "/usr/bin/gh"], "repo", "edit"],
+    decision = "forbidden",
+    justification = "Repository settings and visibility changes are manual-only. Ask the user to change them in GitHub; do not bypass this block using API calls, scripts, or a browser.",
+    match = [
+        "gh repo edit example/project --visibility private --accept-visibility-change-consequences",
+        "gh repo edit --visibility public",
+        "/opt/homebrew/bin/gh repo edit example/project --visibility=private",
+        "gh repo edit example/project --description example --visibility private",
+    ],
+    not_match = [
+        "gh repo view example/project",
+        "gh pr create --repo example/project",
+        "git push origin main",
+    ],
+)

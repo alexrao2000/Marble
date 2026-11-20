@@ -27,3 +27,4 @@
 - [Hyperlink every citation](feedback_hyperlink_citations.md) — an ADR, doc, issue, PR or file named in a PR, issue, comment or chat links to it; ADR numbers and doc paths never auto-link
 - [Clean up task downloads](feedback_clean_up_task_downloads.md) — move temporary downloads out of Downloads promptly, remove them after use, and verify cleanup
 - [Explicit repository visibility permission](feedback_explicit_repository_visibility_permission.md) — never infer a visibility change from a purge or security request; explain irreversible effects before approval
+- [Visual design and product screenshots](feedback_visual_design_proportions_and_screenshots.md) — use actual populated product examples, deliberate proportions, consistent alignment and verified portable images

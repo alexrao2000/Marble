@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Godot paused library growth can crash a later stop](godot-paused-library-growth-stop-crash.md) — Godot 4.5.1 AnimationPlayer · observed 2026-11-21 · stop before mutating the sampled animation library
+
 - [Vercel fetch can misclassify an application 401](vercel-fetch-application-401.md) — connected Vercel fetch tool and CLI 50.32.5 · observed 2026-11-18 · inspect the application response through existing CLI authorization before changing protection
 
 - [Supabase database advisors attempt TLS despite sslmode=disable](supabase-advisors-local-tls.md) — Supabase CLI 2.90.0 on macOS · observed 2026-11-18 · use TLS on the disposable test database

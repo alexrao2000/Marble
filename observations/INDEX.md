@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Godot tween steps can return true after owner deletion is queued](godot-tween-queued-owner-custom-step.md) — Godot 4.5.1 Tween · observed 2026-11-21 · verify endpoint and actual cleanup separately from the step return
+
 - [Godot stopped audio does not retain pause state](godot-stopped-audio-pause-state.md) — Godot 4.5.1 AudioStreamPlayer · observed 2026-11-21 · distinguish silent stopped voices from paused playback
 
 - [Godot paused library growth can crash a later stop](godot-paused-library-growth-stop-crash.md) — Godot 4.5.1 AnimationPlayer · observed 2026-11-21 · stop before mutating the sampled animation library

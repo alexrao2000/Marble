@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Vercel curl can create a persistent project automation key](vercel-curl-creates-project-automation-key.md) — Vercel CLI 50.32.5 on macOS · observed 2026-11-24 · a protected GET can select a new key as a deployment environment variable
+
 - [Godot Web splash can copy imported texture pixels](godot-web-splash-imported-pixels.md) — Godot 4.5.1 Web exporter · observed 2026-11-23 · compare decoded export pixels when changing image formats
 
 - [Connected presentation snapshots can omit image bytes](connected-presentation-snapshot-image-bytes.md) — Artifact Session presentations, runtime 26.1119.11507 · observed 2026-11-23 · validate exported media and rehydrate authorized originals when needed

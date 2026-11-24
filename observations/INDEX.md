@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Swagger UI expansion can stall under a fixed test clock](swagger-ui-fixed-clock-expansion.md) — Swagger UI 5 and Playwright 1.62.1 · observed 2026-11-24 · keep Date.now advancing in API-reference tests
+
 - [Godot viewport listeners can see an old Control size](godot-viewport-before-control-resize.md) — Godot 4.5.1 SubViewport and anchors · observed 2026-11-24 · update dependent geometry after the affected Control lays out its children
 
 - [Godot JSON and literal numbers can compare unequal inside containers](godot-json-container-numeric-equality.md) — Godot 4.5.1 GDScript · observed 2026-11-24 · compare imported tile positions as integers

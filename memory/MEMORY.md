@@ -28,3 +28,5 @@
 - [Clean up task downloads](feedback_clean_up_task_downloads.md) — move temporary downloads out of Downloads promptly, remove them after use, and verify cleanup
 - [Explicit repository visibility permission](feedback_explicit_repository_visibility_permission.md) — never infer a visibility change from a purge or security request; explain irreversible effects before approval
 - [Visual design and product screenshots](feedback_visual_design_proportions_and_screenshots.md) — use actual populated product examples, deliberate proportions, consistent alignment and verified portable images
+- [Browser-first desktop apps](feedback_browser_first_desktop.md) — share the browser interface with the desktop wrapper unless the app is desktop-only, and always provide desktop hot reload
+- [App UI design and verification](feedback_app_ui_design_and_verification.md) — keep frequent controls near the work and visually check real, populated app workflows

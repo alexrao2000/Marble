@@ -12,8 +12,8 @@ metadata:
 ## Observed
 
 With a protected project linked and no reusable automation secret, a GET through
-\`vercel curl\` created a project-wide automation bypass credential. The project API
-reported the new entry as \`isEnvVar: true\` after the CLI exited.
+`vercel curl` created a project-wide automation bypass credential. The project API
+reported the new entry as `isEnvVar: true` after the CLI exited.
 
 ## Evidence
 

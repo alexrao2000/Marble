@@ -10,6 +10,8 @@ When launching macOS applications, opening files, or opening URLs from the termi
 
 For any task that designs, builds, or reviews a user interface, read the [Marble design system](/Users/alexr/Marble/design-system/README.md) before making UI decisions. Use its shared patterns and check the running interface. For web work, load the project-local controls stylesheet or map the same primitives to the project's component system.
 
+When asked to make a browser app, use the [tab icon skill](/Users/alexr/Marble/skills/tab-icon/SKILL.md).
+
 # Personal memory
 
 The versioned memory index is `/Users/alexr/Marble/memory/MEMORY.md`.

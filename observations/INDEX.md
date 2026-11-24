@@ -5,6 +5,7 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Godot JSON and literal numbers can compare unequal inside containers](godot-json-container-numeric-equality.md) — Godot 4.5.1 GDScript · observed 2026-11-24 · compare imported tile positions as integers
 - [Codex commands can lose a background web server on exit](codex-exec-background-server-lifetime.md) — Codex desktop command tool on macOS · observed 2026-11-24 · verify the listener after the launcher returns
 
 - [Godot reference-counted IDs can be negative](godot-refcounted-instance-id-sign.md) — Godot 4.5.1 GDScript · observed 2026-11-24 · compare live object identities without a positive-sign assumption

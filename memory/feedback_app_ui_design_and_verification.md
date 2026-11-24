@@ -6,6 +6,8 @@ metadata:
   modified: 2026-11-23
 ---
 
+Start with the [Marble design system](../design-system/README.md).
+
 Build a consistent type hierarchy, spacing, and alignment around the work people
 do most often. Use a few strong visual accents. Keep frequent choices next to the
 work they affect and put setup-only options in settings. Use familiar interaction

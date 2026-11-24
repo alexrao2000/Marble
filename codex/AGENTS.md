@@ -6,6 +6,10 @@ Create new repositories and named projects directly under /Users/alexr/<project-
 
 When launching macOS applications, opening files, or opening URLs from the terminal, use `open -g` so the application stays in the background. For example: `open -g -a "Google Chrome"`. Do not activate or bring an application to the foreground unless the user explicitly asks.
 
+## Interface work
+
+For any task that designs, builds, or reviews a user interface, read the [Marble design system](/Users/alexr/Marble/design-system/README.md) before making UI decisions. Use its shared patterns and check the running interface. For web work, load the project-local controls stylesheet or map the same primitives to the project's component system.
+
 # Personal memory
 
 The versioned memory index is `/Users/alexr/Marble/memory/MEMORY.md`.

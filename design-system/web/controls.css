@@ -1,0 +1,91 @@
+/* Marble design system / Web controls. Keep a project-local copy for builds. */
+:root {
+  --ds-space-1: 4px;
+  --ds-space-2: 8px;
+  --ds-space-3: 12px;
+  --ds-space-4: 16px;
+  --ds-space-6: 24px;
+  --ds-space-8: 32px;
+  --ds-control-height: 36px;
+  --ds-control-radius: 8px;
+  --ds-choice-size: 16px;
+  --ds-line: #e6e5e2;
+  --ds-ink: #20201f;
+  --ds-muted: #62615e;
+  --ds-surface-raised: #fff;
+  --ds-surface-selected: #f4f3f0;
+  --ds-focus: #625e54;
+}
+
+.ds-field {
+  inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: var(--ds-control-height);
+  padding: var(--ds-space-2) var(--ds-space-3);
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-control-radius);
+  background: var(--ds-surface-raised);
+}
+
+.ds-choice {
+  appearance: auto;
+  flex: none;
+  inline-size: var(--ds-choice-size);
+  min-inline-size: var(--ds-choice-size);
+  block-size: var(--ds-choice-size);
+  margin: 0;
+  padding: 0;
+  accent-color: var(--ds-ink);
+  cursor: pointer;
+}
+
+.ds-choice-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--ds-choice-size);
+  align-items: center;
+  gap: var(--ds-space-3);
+  min-block-size: var(--ds-control-height);
+  padding: var(--ds-space-2) var(--ds-space-3);
+  border: 1px solid transparent;
+  border-radius: var(--ds-control-radius);
+  cursor: pointer;
+}
+
+.ds-choice-row > :first-child { min-inline-size: 0; }
+
+.ds-choice-row:hover, .ds-choice-row:has(> .ds-choice:checked),
+.ds-choice-chip:hover, .ds-choice-chip:has(> .ds-choice:checked) {
+  background: var(--ds-surface-selected);
+  border-color: var(--ds-line);
+}
+
+.ds-choice-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-1);
+  min-block-size: var(--ds-control-height);
+  padding: var(--ds-space-1) var(--ds-space-2);
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-control-radius);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.ds-focus:focus-visible, .ds-field:focus-visible,
+.ds-choice-row:has(> .ds-choice:focus-visible),
+.ds-choice-chip:has(> .ds-choice:focus-visible) {
+  outline: 2px solid var(--ds-focus);
+  outline-offset: 2px;
+}
+
+.ds-choice-row > .ds-choice:focus-visible,
+.ds-choice-chip > .ds-choice:focus-visible {
+  outline: none;
+}
+
+@media (forced-colors: active) {
+  .ds-choice-row:has(> .ds-choice:focus-visible), .ds-choice-chip:has(> .ds-choice:focus-visible) {
+    outline-color: Highlight;
+  }
+}

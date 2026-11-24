@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Godot Web splash can copy imported texture pixels](godot-web-splash-imported-pixels.md) — Godot 4.5.1 Web exporter · observed 2026-11-23 · compare decoded export pixels when changing image formats
+
 - [Connected presentation snapshots can omit image bytes](connected-presentation-snapshot-image-bytes.md) — Artifact Session presentations, runtime 26.1119.11507 · observed 2026-11-23 · validate exported media and rehydrate authorized originals when needed
 
 - [Godot tween steps can return true after owner deletion is queued](godot-tween-queued-owner-custom-step.md) — Godot 4.5.1 Tween · observed 2026-11-21 · verify endpoint and actual cleanup separately from the step return

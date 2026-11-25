@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Godot embedded dialogs can retain an oversized form](godot-embedded-dialog-initial-wrap.md) — Godot 4.5.1 embedded AcceptDialog · observed 2026-11-25 · check the bounds of both the window and form controls
+
 - [Vercel CLI can skip allowlisted directories with trailing slashes](vercel-cli-ignore-directory-slashes.md) — Vercel CLI 65.0.0 on macOS · observed 2026-11-24 · write directory exceptions without a trailing slash
 
 - [Vercel CLI can reject sensitive variable updates](vercel-cli-sensitive-env-update.md) — Vercel CLI 50.32.5 on macOS · observed 2026-11-24 · the authenticated edit API accepted an in-place replacement

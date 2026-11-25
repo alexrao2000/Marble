@@ -38,8 +38,8 @@ proceed.
 Work the actionable items in dependency order. For each item:
 
 1. Read the project's AGENTS.md and active plan to confirm scope.
-2. Do the work (spec amendment, code, research, documentation).
-3. Run the project's check script (`scripts/check.sh` or equivalent) after each change.
+2. Do the work (spec amendment, code, research, documentation), implementing coherent slices first.
+3. Batch test writing and runs at useful checkpoints. Follow the [development cadence preference](../../memory/feedback_implementation_and_test_cadence.md) and run relevant completion checks before committing completed code.
 4. Note what was done.
 
 Do not stop between items unless blocked.

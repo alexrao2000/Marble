@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: feedback
   originSessionId: 81a8e075-feb8-4cf0-807b-bacbbddc771d
-  modified: 2026-08-06T22:45:19.020Z
+  modified: 2026-11-25
 ---
 
 Every PR and issue body uses this exact structure. PRs #380 and #381 are the canonical examples the user pointed at.
@@ -38,7 +38,7 @@ Closes #365
 
 **How to apply:**
 - Every `## Changes` entry gets **three parts**: a bolded full-sentence lead-in, a snippet or quoted spec text, and a plain-sentence explanation. Never a bare label fragment like "**Tests:**" or "**Spec:**".
-- Say plainly which tests are new and that they were seen failing first — "We added three new tests, and two of them were failing before this PR's changes landed."
+- Say plainly which tests are new, what behavior they cover, and their observed results. Mention a failure before the fix only when it was actually measured. Test ordering follows the [development cadence preference](feedback_implementation_and_test_cadence.md).
 - Call out the one line that actually fixes the problem, and say the rest supports it: "this is the whole fix", "everything below either proves this works or writes down the rule".
 - Say when there is *no* spec change and why, rather than leaving the absence unexplained.
 - Test line is the literal shape "N tests passed, 0 failed, and ruff reported no issues." then `Closes #N`.

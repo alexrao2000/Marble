@@ -1,5 +1,6 @@
 - [Review private context before publishing](feedback_review_private_context_before_publishing.md) — confirm repository visibility and inspect code, paths, commits, and PR metadata for unauthorized private information
-- [Run checks before committing](feedback_run_checks_before_committing.md) — run relevant tests, lint, types, and builds before commits; report blocked checks clearly
+- [Implementation and test cadence](feedback_implementation_and_test_cadence.md) — implement first, batch tests and runs, and autonomously compare cadences on real project work using delivery time and rework
+- [Run checks before committing](feedback_run_checks_before_committing.md) — run relevant tests, lint, types, and builds before completed-code commits; batch implementation and report blocked checks clearly
 - [Keep personal setup out of repositories](feedback_keep_personal_setup_out_of_repositories.md) — tool setup stays local; never commit credentials, authentication, or personal configuration, even to private repositories
 - [Plain English](feedback_plain_english.md) — the one style rule; write the way a competent colleague talks, and being understood beats being distinctive
 - [No outside names](feedback_no_outside_names.md) — do not mention outside organizations, companies, or repositories; keep other work generic unless explicitly requested
@@ -21,7 +22,7 @@
 - [Fold, don't file](feedback_fold_dont_file.md) — during release wrap-up, fix small findings into the current PR instead of opening Phase 1A issues
 - [Do the asked change](feedback_do_the_asked_change.md) — make the edit and stop; reminders are fine, but an item Alex deferred is closed until he reopens it
 - [Worktree before the first commit](feedback_worktree_before_first_commit.md) — a concurrent session can switch the shared checkout mid-task; stage explicit paths, never git add -A
-- [Always commit](feedback_always_commit.md) — commit work to git immediately; scratchpad only for throwaway intermediates; exceptions: secrets, large unignored datasets
+- [Always commit](feedback_always_commit.md) — commit completed, coherent work after relevant checks; scratchpad only for throwaway intermediates; keep private setup and sensitive data local
 - [Marble repo](reference_memory_and_skills_repo.md) — exported setup repo and local checkout; memory/ and skills/ trees
 - [Check method before restructuring](feedback_check_method_before_restructuring.md) — read the SDD and reqs/ before moving or renaming anything they may prescribe; push back with the line rather than comply
 - [Hyperlink every citation](feedback_hyperlink_citations.md) — an ADR, doc, issue, PR or file named in a PR, issue, comment or chat links to it; ADR numbers and doc paths never auto-link

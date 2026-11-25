@@ -5,6 +5,8 @@ entry's re-check before relying on it if it is older than its `recheck_after_day
 
 ## Active
 
+- [Vercel CLI can skip allowlisted directories with trailing slashes](vercel-cli-ignore-directory-slashes.md) — Vercel CLI 65.0.0 on macOS · observed 2026-11-24 · write directory exceptions without a trailing slash
+
 - [Vercel CLI can reject sensitive variable updates](vercel-cli-sensitive-env-update.md) — Vercel CLI 50.32.5 on macOS · observed 2026-11-24 · the authenticated edit API accepted an in-place replacement
 
 - [Swagger UI expansion can stall under a fixed test clock](swagger-ui-fixed-clock-expansion.md) — Swagger UI 5 and Playwright 1.62.1 · observed 2026-11-24 · keep Date.now advancing in API-reference tests
